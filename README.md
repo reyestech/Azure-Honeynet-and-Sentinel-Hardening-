@@ -1,296 +1,138 @@
-
-<img src="https://i.imgur.com/YdUR8xm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 # Azure Sentinel: Network Hardening with Honeynet 
-<h2>Hector M. Reyes | SOC Analyst </h2>
-<h1> Cloud Network Hardening with Honeynet 
-</h1><img src="https://i.imgur.com/LBJ2GDc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Hector M. Reyes | SOC Analyst:
+Cloud Network Hardening with Honeynet 
 
+![Cloud Honeynet / SOC](https://i.imgur.com/YdUR8xm.jpg)
 
-<h2>Intro:</h2>
+## Introduction
+We will establish a honeynet within our Microsoft Azure Security Information and Event Management (SIEM) system to attract malicious actors worldwide and provoke live attacks on our cloud environment. Our Security Operations Center (SOC) will log, monitor, and analyze the malicious traffic generated, enabling us to conduct incident response effectively. Subsequently, we will implement stringent hardening controls, ensure compliance with regulatory standards such as NIST 800-53, and adhere to Microsoft Defender for Cloud recommendations to fortify the security of our cloud infrastructure.
 
+## Objective:
+Over 24 hours, we observed attacks from various locations globally targeting our Cloud environment, encompassing Windows Virtual Machines, SQL Servers, and Ubuntu Linux VMs. Log Analytics was employed to ingest logs from diverse sources, empowering Microsoft Sentinel to construct attack maps, trigger alerts, and initiate incident responses. Microsoft Defender for Cloud served as a crucial data source for Log Analytics Workspace (LAW) and aided in evaluating the configuration of Virtual Machines in alignment with regulatory frameworks and security controls. I configured log collection within the vulnerable environment, established security metrics, and monitored the environment continuously for 24 hours. Following an investigation into the incidents flagged by Microsoft Sentinel during this timeframe, security controls were implemented to mitigate the identified threats and bolster the environment based on Microsoft Defender's recommendations. After another 24-hour monitoring phase, new metrics were gathered post-remediation, followed by the adoption of NIST 800-53 standards as a foundational framework to enhance the security posture of our cloud environment.
 
+![Cloud Honeynet / SOC](https://i.imgur.com/LBJ2GDc.jpg)
 
+## Methodology:
+Part 1: Environment Setup and Initial Assessment 
+- Deployment of Vulnerable Virtual Machines: I initiated the project by deploying several virtual machines with known vulnerabilities on Azure to simulate an insecure cloud environment. This setup aimed to mirror an insecure cloud environment closely.
 
+Part 2: Log Data Configuration and Collection
+- Configuration of Azure for Log Data Collection: Azure was meticulously set up to collect log data from various sources. This data was then stored in a log analytics workspace, ensuring a comprehensive repository of system activities and potential security threats.
 
-<br />
+Part 3: Monitoring and Benchmarking
+- 24-Hour Monitoring and Benchmarking: Over 24 hours, I actively monitored the environment, focusing on capturing critical security metrics. This phase was crucial for establishing a benchmark, which would later serve as a comparative baseline to gauge the effectiveness of implemented security enhancements.
 
-<h2>Description</h2>
-A client requested our security services after experiencing a company-wide security breach. However, we encountered a significant challenge since our teams were located across different locations in the US. To provide the best possible protection to our client's businesses, we operated across multiple time zones and promptly monitored the various systems. 
-To address this challenge, I created an Elastic SIEM Lab. This lab environment enables me to connect, monitor, test, and analyze various operating systems remotely across multiple network systems. By utilizing these tools, we can guarantee prompt and effective protection for our client's businesses.
-<br />
+Part 4: Incident Detection and Response
+- Utilization of Microsoft Sentinel for Threat Detection: Leveraging Microsoft Sentinel, I developed attack maps, triggered alerts, and generated incidents based on the collected log data. This proactive approach allowed for the timely identification and addressing of security incidents and vulnerabilities.
 
-<h4>Tools Used: </h4>  </b>
+Part 5: Security Enhancement Implementation
+- Implementation of Security Best Practices: After identifying security issues in our environment, I improved our security posture by implementing best practices, incorporating Azure-specific recommendations, and integrating NIST SP 800-53 Revision 5 for Security Controls and NIST SP 800-61 Revision 2 for Incident Handling Guidance. The goal was to enhance the security of our cloud environment and make it more resilient against potential threats.
 
-- <b>Elastic Cloud | SIEM (Security Information and Event Management) </b>
-- <b>Kibana | Logstash | ELK Stack </b>
-- <b>VMware | VirtualBox  </b>
+Part 6: Post-Remediation Assessment and Evaluation
+- Reassessment and Evaluation of Security Enhancements: During the final phase, I conducted a 24-hour assessment of the environment to evaluate the security metrics after the remediation. This reassessment was critical in comparing the initial and current security states to quantify the progress and effectiveness of the implemented security enhancements.
 
-<h4>Environments Used </h4>
+![Cloud Honeynet / SOC](https://i.imgur.com/4l7ZPpX.jpg)
 
-- <b>Windows OS | Active Directory | PowerShell </b> 
-- <b>Kali Linux | Ubuntu Server | Port Forwarding </b> 
-- <b>Windows OS | Active Directory | PowerShell </b>
+## Methodology:
+Infrastructure Setup
+Azure Virtual Network (VNet): 
+- The foundational network layer in Azure.
+- Virtual Machines (2 Windows VMs, 1 Linux VM): The compute resources where applications and services run.
+- Azure Storage Account: Provides scalable cloud storage for data, applications, and workloads.
 
-<h2> Blue Team Solution: SIEM Implementation </h2>
-The Blue Team has implemented a Security Information and Event Management (SIEM) system to ensure the security of their network. The system collects logs from various sources, such as servers, endpoints, and network devices, and detects any unusual or suspicious activities through correlation and alerts. In case of any incident, SIEM automates the incident handling process. Additionally, SIEM integrates threat intelligence to provide real-time updates on known threats, which helps in early detection.
+Security and Compliance
+- Azure Network Security Groups (NSG): Controls inbound and outbound traffic to Azure resources.
+- Azure Key Vault: Manages and protects cryptographic keys and other secrets used by cloud apps and services.
+- Microsoft Defender for Cloud: Offers integrated security monitoring and policy management across Azure resources.
+- NIST SP 800-53 Revision 5 for Security Controls provides a catalog of security and privacy controls for federal information systems and organizations.
+- NIST SP 800-61 Revision 2 for Incident Handling Guidance offers guidance on effectively responding to and managing incidents.
 
-For Blue Teams, SIEM is a crucial tool as it helps detect threats early on and prevents them from escalating. SIEM provides contextual insights by correlating logs, which helps in incident response and provides a better understanding of the situation. Moreover, the customizable rules of SIEM allow Blue Teams to tailor it according to their environment, making it more efficient and effective. Lastly, SIEM operates continuously, providing 24/7 monitoring, ensuring constant vigilance and quick response to any potential threat.
+Management and Operations
+- Microsoft SQL Server on VMs: A relational database server is used for various transactional and analytical operations.
+- SQL Server Management Studio (SSMS): An integrated environment for managing any SQL infrastructure.
+- Azure Active Directory: Microsoft's multi-tenant, cloud-based directory and identity management service.
+- PowerShell: A task automation and configuration management framework.
+- Command Line Interface (CLI): Users can interact with their computer's operating system or software by typing commands.
 
-1. Early Threat Detection: SIEM can help detect potential threats and suspicious activities early, allowing for timely intervention and prevention of further escalation.
-2. Insights: Crucial for understanding incidents. Correlating logs provides the necessary context for this understanding.
-3. Customizable Rules: Blue Teams tailor SIEM rules to their specific environment and threat landscape. It allows them to better adapt to potential threats and ensure a more effective security system.
-4. Remote Monitoring: It provides 24/7 remote monitoring for the network, detecting and alerting you to potential threats. It ensures constant vigilance from anywhere on the client's network, keeping it safe and secure.
+Monitoring and Analysis
+- Log Analytics Workspace with Kusto Query Language (KQL) Queries is a tool for collecting, searching, and analyzing log data.
+- Microsoft Sentinel (SIEM) provides security information and event management, including threat detection, proactive hunting, and threat response.
+- Syslog (Linux Event Logs) and Windows Event Viewer are tools for logging and analyzing system events on Linux and Windows systems, respectively.
 
-<br />
 
-<h1>Elastic SIEM: Kali Linux Runbook: </h1> 
-<img src="https://i.imgur.com/aEr0n4C.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+## Architecture Before Hardening / Security Controls
 
-<h2> 1. Introduction to SIEM (Security Information and Event Management)</h2>
-Purpose <br />
-SIEM systems analyze log data from various sources to quickly detect and respond to security incidents. They use advanced analytics to identify anomalous activities and provide a centralized platform for monitoring and managing security events, giving security teams a holistic view of their organization's security posture.
+![Cloud Honeynet / SOC](https://i.imgur.com/iSlfeYX.jpg)
 
-<img src="https://i.imgur.com/23mSmyx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+- To bolster your project's security, comprehending and anticipating the strategies employed by cyber adversaries is imperative. This objective can be met by setting up a controlled virtual environment that is deliberately exposed to the public. This approach entices potential hackers, allowing them to observe and analyze their attack methods.
+- In the project's preparatory phase, we implemented a dual setup: a Windows virtual machine equipped with an SQL database and a Linux server configured with loosely regulated network security groups (NSGs) to increase their visibility on the internet. Additionally, a storage account and a critical vault with publicly accessible endpoints were established to lure cyber attackers.
+- Throughout this initial phase, Microsoft Sentinel was utilized to oversee the environment, leveraging logs collected by the Log Analytics workspace to monitor activities.
+- This strategic gathering of intelligence provides reassurance about the thoroughness of our process, offering invaluable insights into potential vulnerabilities and security threats and enabling the formulation of robust defense mechanisms before deploying the final solution. Allow All configured.
+- A storage account and critical vault were deployed with public endpoints visible on the open internet to entice these attackers even further. In this stage, Microsoft Sentinel monitored the unsecured environment using logs aggregated by the Log Analytics workspace.
 
-<br /> 
+## Architecture After Hardening / Security Controls
 
-<h2> 2. Installation </h2>
+![Cloud Honeynet / SOC](https://i.imgur.com/ShquQ5C.jpg)
+The architecture was fortified in the project's subsequent phase to meet NIST SP 800-53 Rev4 SC-7(3) Access Points' strict requirements. The following security enhancements were employed:  
+1. Enhanced Network Security Groups (NSGs): They thoroughly block all traffic except that from pre-authorized public IP addresses. 
+2. Optimized Built-in Firewalls: Carefully tailored firewall rules significantly reduced potential avenues of attack. 
+3. Transition to Private Endpoints: Replaced Public Endpoints with Private Endpoints to restrict access to critical Azure resources exclusively. These enhancements fortified the architecture against potential threats and ensured compliance with security standards, laying a robust foundation for a secure digital environment.
 
-<h3>Elastic SIEM Tools Installation: </h3>
-Install Elasticsearch, Logstash, and Kibana on your Linux Machine: <br />
 
-- <b> Elasticsearch is a distributed, RESTful search and analytics engine.
 
-- <b> Logstash is a data processing pipeline that ingests data from multiple sources, transforms it, and sends it to a "stash" such as Elasticsearch.
+The architecture of the mini honeynet in Azure consists of the following components:
 
-- <b> Kibana is an open-source data visualization dashboard for Elasticsearch.
+- Virtual Network (VNet)
+- Network Security Group (NSG)
+- Virtual Machines (2 windows, 1 linux)
+- Log Analytics Workspace
+- Azure Key Vault
+- Azure Storage Account
+- Microsoft Sentinel
 
-<img src="https://i.imgur.com/BfF6EEf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+For the "BEFORE" metrics, all resources were originally deployed and exposed to the Internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources were deployed with public endpoints visible to the Internet—aka, there was no use for Private Endpoints.
 
-<br /> 
+For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
-<h2>3. Configuration </h2>
+## Attack Maps Before Hardening / Security Controls
+![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
+![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
+![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
 
-Elasticsearch Configuration <br /> 
-- <b> Configure Elasticsearch settings such as cluster name and node settings. 
+## Metrics Before Hardening / Security Controls
 
-<img src="https://i.imgur.com/27x8h0i.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+The following table shows the metrics we measured in our insecure environment for 24 hours:
+Start Time 2023-03-15 17:04:29
+Stop Time 2023-03-16 17:04:29
 
-Logstash Configuration <br /> 
-- <b> Configure Logstash pipelines to ingest, transform, and output data.
+| Metric                   | Count
+| ------------------------ | -----
+| SecurityEvent            | 19470
+| Syslog                   | 3028
+| SecurityAlert            | 10
+| SecurityIncident         | 348
+| AzureNetworkAnalytics_CL | 843
 
- <img src="https://i.imgur.com/yNJG955.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+## Attack Maps Before Hardening / Security Controls
 
-Kibana Configuration <br />
-- <b> Configure Kibana settings such as server host and port.
+```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
 
-<img src="https://i.imgur.com/yPdrSXC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+## Metrics After Hardening / Security Controls
 
-<br /> 
+The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
+Start Time 2023-03-18 15:37
+Stop Time	2023-03-19 15:37
 
-<h2>4. Starting Services </h2>
+| Metric                   | Count
+| ------------------------ | -----
+| SecurityEvent            | 8778
+| Syslog                   | 25
+| SecurityAlert            | 0
+| SecurityIncident         | 0
+| AzureNetworkAnalytics_CL | 0
 
-Start Elasticsearch <br />
-- <b> Start the Elasticsearch service.
+## Conclusion
 
-<img src="https://i.imgur.com/Iv1MOIs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
 
-<img src="https://i.imgur.com/kvlDz36.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Start Logstash <br />
-- <b> Start the Logstash service. 
-
-<img src="https://i.imgur.com/MuGPmMj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Start Kibana <br />
-- <b> Start the Kibana service. 
-
-<img src="https://i.imgur.com/2G34EAZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>5. Basic Usage </h2>
-
-Access Kibana Interface <br />
-- <b> Open a web browser and navigate to the Kibana web interface: 
-
-<img src="https://i.imgur.com/trQlRiy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Create Index Patterns <br />
-- <b> Define index patterns in Kibana to specify which indices to query. 
-
-Explore Data  <br />
-- <b> Use the Discover tab in Kibana to explore and search through log data. 
-
-<br /> 
-
-<h2>6. Beginner Commands </h2>
-
-Index Management <br />
-- <b> Create an index in Elasticsearch. 
-
-<img src="https://i.imgur.com/lFp8H3E.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Document Indexing <br />
-- <b> Index a document in Elasticsearch.
-
-<img src="https://i.imgur.com/Ecmv7cg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>7. Intermediate Commands </h2>
-Logstash Configuration <br /> 
-- <b> Verify Logstash configuration syntax. 
-
-<img src="https://i.imgur.com/YNyPtTy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Pipeline Debugging <br />
-- <b> Debug Logstash pipelines by printing output to the console. 
-
-<img src="https://i.imgur.com/uHBH6oz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<img src="https://i.imgur.com/tct10Ca.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>8. Advanced Commands </h2>
-
-Elasticsearch Query DSL <br />
-- <b> Perform advanced queries using Elasticsearch Query DSL.
-
-<img src="https://i.imgur.com/Suo5ZUB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Logstash Plugins <br />
-- <b> Install additional Logstash plugins for extended functionality. 
-
-<img src="https://i.imgur.com/XZX71eq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>9. SOP (Standard Operating Procedures) </h2>
-
-Incident Response  <br />
-- <b> Develop SOPs for incident response, including steps for detecting, analyzing, and mitigating security incidents using SIEM tools. 
-
-Regular Maintenance <br />
-- <b> Establish SOPs for regular maintenance tasks such as index management, log rotation, and performance optimization. 
-
-<img src="https://i.imgur.com/BLMEJR4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>10. Documentation and Reporting </h2>
-
-Document Configuration <br />
-- <b> Maintain detailed documentation of SIEM configuration settings, including Elasticsearch indices, Logstash pipelines, and Kibana visualizations. 
-
-Generate Reports <br />
-- <b> Use Kibana dashboards and visualizations to generate reports on security incidents, log trends, and system performance.
-
-<img src="https://i.imgur.com/u08J4nF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>11. Compliance and Regulatory Considerations </h2>
-
-Compliance Frameworks <br />
-- <b> Ensure SIEM configurations comply with relevant industry regulations, standards, and frameworks such as PCI DSS, HIPAA, and GDPR. 
-
-Auditing and Monitoring <br />
-- <b> Implement auditing and monitoring mechanisms to track changes to SIEM configurations and detect unauthorized access or tampering. <br />
-
-<img src="https://i.imgur.com/DamnXBK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-
-<br />
-
-<h2>12. Continuous Learning </h2>
-
-Training and Education <br />
-- <b> Invest in continuous training and education to stay updated on the latest SIEM technologies, best practices, and emerging threats. 
-
- <br />
-
-<h2>13. Troubleshooting </h2>
-
-Logstash Debugging <br />
-- <b> Troubleshoot Logstash configuration errors by examining Logstash logs for errors and warnings.
-
-<img src="https://i.imgur.com/SvtlvgY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-Elasticsearch Health Check <br />
-- <b> Check the health status of Elasticsearch to identify any issues. 
-
-<img src="https://i.imgur.com/LS9OG40.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
- 
-<h2>14. Integration with Other Tools </h2>
-
-Integration with IDS/IPS <br />
-- <b> Integrate SIEM with Intrusion Detection Systems (IDS) or Intrusion Prevention Systems (IPS) to correlate security events and alerts. 
-
-Integration with Vulnerability Scanners <br />
-- <b> Integrate SIEM with vulnerability scanners to identify security weaknesses and prioritize remediation efforts. 
-
-<img src="https://i.imgur.com/rN6qkjr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>15. Advanced Techniques </h2>
-
-Custom Dashboards <br />
- - <b> Develop custom dashboards and visualizations in Kibana to monitor specific security metrics and key performance indicators (KPIs). 
-
-Machine Learning and Threat Intelligence <br />
-- <b> Leverage machine learning algorithms and threat intelligence feeds to enhance threat detection and automate incident response. 
-
-<img src="https://i.imgur.com/wqkD1VY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>16. Automation </h2>
-
-Automated Alerting <br />
-- <b> Configure automated alerting mechanisms in Kibana to notify security teams of potential security incidents or abnormal behavior. 
-
-Automated Remediation <br />
-- <b> Implement automated response actions to mitigate security incidents, such as blocking malicious IP addresses or quarantining compromised systems.
-
-<img src="https://i.imgur.com/XACVbU6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
-
-<br /> 
-
-<h2>17. Scalability and High Availability </h2>
-
-Cluster Deployment <br />
-- <b> Deploy SIEM components such as Elasticsearch, Logstash, and Kibana to achieve scalability and high availability in a clustered environment. 
-
-Load Balancing <br />
-- <b> Implement load balancing mechanisms to distribute incoming log data evenly across SIEM cluster nodes and ensure optimal performance. 
-
-<img src="https://i.imgur.com/U8Q5Kzm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-<br /> 
-
-<h2>18. Disaster Recovery and Backup </h2>
-
-Backup and Restore  <br />
-- <b> Establish backup and restore procedures for SIEM data to ensure data integrity and facilitate recovery in case of system failures or data loss. 
-
-Disaster Recovery Planning <br />
-- <b> Develop disaster recovery plans and procedures to minimize downtime and restore SIEM functionality during catastrophic events or security breaches. <br />
-
-<img src="https://i.imgur.com/XVirrRF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
-
-<br /> 
-
-<h1> Conclusion  </h1>
-In today's world, cybersecurity is of paramount importance to any organization. That's why SIEMs are an essential tool in any cybersecurity arsenal. SIEMs offer remote visibility into security events and allow us to stay one step ahead of cyber threats by proactively detecting anomalies in our Networks. Following Security best practices, maintaining proper documentation, and keeping staff up-to-date on security standards are crucial to getting the most out of SIEM and providing a safe and secure work environment. Doing so can improve your organization's security posture, reduce the risk of cyberattacks, and protect your valuable assets. <br />
-<br /> 
- 
-<img src="https://i.imgur.com/uGTHzSU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-
-<br />
-# Azure-Honeynet-and-Sentinel-Hardening-
+It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
