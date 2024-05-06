@@ -2,7 +2,7 @@
 Hector M. Reyes | SOC Analyst:
 Cloud Network Hardening with Honeynet 
 
-![Cloud Honeynet / SOC](https://i.imgur.com/YdUR8xm.jpg)
+![Cloud Honeynet / SOC](https://i.imgur.com/wFO54pn.jpg)
 
 ## Introduction
 We will establish a honeynet within our Microsoft Azure Security Information and Event Management (SIEM) system to attract malicious actors worldwide and provoke live attacks on our cloud environment. Our Security Operations Center (SOC) will log, monitor, and analyze the malicious traffic generated, enabling us to conduct incident response effectively. Subsequently, we will implement stringent hardening controls, ensure compliance with regulatory standards such as NIST 800-53, and adhere to Microsoft Defender for Cloud recommendations to fortify the security of our cloud infrastructure.
@@ -99,15 +99,30 @@ The architecture was fortified in the project's subsequent phase to meet NIST SP
 ![Cloud Honeynet / SOC](https://i.imgur.com/48AltfS.jpg)
 
 
+## Analysis & Incident Assessment 
+I carefully reviewed multiple incidents over 24 hours in a vulnerable environment. For each incident, I thoroughly examined details regarding the attackers, including their IP addresses, the methods they used, the nature of their attacks, and the sequence of events. Additionally, I looked deeper into the IP addresses to scrutinize any associated alerts, distinguish between true and false positives, and accurately assess each incident.
+
+Incident ID: 329
+- It has been reported that an attack occurred at IP address 74.249.102.160. This IP address was found to be associated with multiple incidents, which triggered several alerts and automatically created incidents.
+
+Here is a list:
+- Alert 1: Brute Force ATTEMPT – Windows; ID: 205
+- Alert 2: Brute Force ATTEMPT - MS SQL Server; ID: 214
+- Alert 3: Brute Force Success - Linux Syslog; ID: 329
+
+Remediated by:
+- Resetting the password for the compromised user and Locked down NSGs
+
+Impact :
+- The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
 
+![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/nAwc5or.png)<br>
 
 
+![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/Jv8Qaf8.png)<br>
 
-## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+
 
 ## Metrics Before Hardening / Security Controls
 
@@ -144,3 +159,5 @@ Stop Time	2024-05-04 15:37
 ## Conclusion
 
 A honeynet was set up on Microsoft Azure to attract real-time attacks from potential threat actors. Various log sources were integrated into a Log Analytics workspace. Using these logs, Microsoft Sentinel generated alerts, created incidents, and marked them on our Sentinel map. Furthermore, security metrics were evaluated in this vulnerable setup before and after applying specific security protocols. The results showed a significant decrease in security events and incidents, thanks to adopting selected NIST SP 800-53 guidelines and Microsoft Defender's insights. This highlights the effectiveness of the implemented security measures, which provide a positive assurance for the security posture of our Azure infrastructure.
+
+![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/Izat0DM.png)<br>
