@@ -1,16 +1,17 @@
 ![Cloud Honeynet / SOC](https://i.imgur.com/k70uOP6.jpg)
 
-# Azure Sentinel: Network Hardening with Honeynet 
+# Azure Sentinel: Live Honeynet trap and Cloud Network Hardening
 Hector M. Reyes | SOC Analyst:
-Cloud Network Hardening with Honeynet 
 
 ## Introduction
 We will establish a honeynet within our Microsoft Azure Security Information and Event Management (SIEM) system to attract malicious actors worldwide and provoke live attacks on our cloud environment. Our Security Operations Center (SOC) will log, monitor, and analyze the malicious traffic generated, enabling us to conduct incident response effectively. Subsequently, we will implement stringent hardening controls, ensure compliance with regulatory standards such as NIST 800-53, and adhere to Microsoft Defender for Cloud recommendations to fortify the security of our cloud infrastructure.
 
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/72cd9afd-60cc-41c9-b022-87a2d9925091)
+
 ## Objective:
 Over 24 hours, we observed attacks from various locations globally targeting our Cloud environment, encompassing Windows Virtual Machines, SQL Servers, and Ubuntu Linux VMs. Log Analytics was employed to ingest logs from diverse sources, empowering Microsoft Sentinel to construct attack maps, trigger alerts, and initiate incident responses. Microsoft Defender for Cloud served as a crucial data source for Log Analytics Workspace (LAW) and aided in evaluating the configuration of Virtual Machines in alignment with regulatory frameworks and security controls. I configured log collection within the vulnerable environment, established security metrics, and monitored the environment continuously for 24 hours. Following an investigation into the incidents flagged by Microsoft Sentinel during this timeframe, security controls were implemented to mitigate the identified threats and bolster the environment based on Microsoft Defender's recommendations. After another 24-hour monitoring phase, new metrics were gathered post-remediation, followed by the adoption of NIST 800-53 standards as a foundational framework to enhance the security posture of our cloud environment.
 
-![Cloud Honeynet / SOC](https://i.imgur.com/LBJ2GDc.jpg)
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9e373532-29bd-40c3-8b4c-39569133f645)
 
 ## Methodology:
 Part 1: Environment Setup and Initial Assessment 
