@@ -1,4 +1,4 @@
-![Cloud Honeynet / SOC](https://i.imgur.com/k70uOP6.jpg)
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/4799cbed-9b4b-42a1-b531-6b4c81ab016a)
 
 # Azure Sentinel: Live Honeynet trap and Cloud Network Hardening
 Hector M. Reyes | SOC Analyst:
@@ -6,7 +6,8 @@ Hector M. Reyes | SOC Analyst:
 ## Introduction
 We will establish a honeynet within our Microsoft Azure Security Information and Event Management (SIEM) system to attract malicious actors worldwide and provoke live attacks on our cloud environment. Our Security Operations Center (SOC) will log, monitor, and analyze the malicious traffic generated, enabling us to conduct incident response effectively. Subsequently, we will implement stringent hardening controls, ensure compliance with regulatory standards such as NIST 800-53, and adhere to Microsoft Defender for Cloud recommendations to fortify the security of our cloud infrastructure.
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/72cd9afd-60cc-41c9-b022-87a2d9925091)
+![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
+
 
 ## Objective:
 Over 24 hours, we observed attacks from various locations globally targeting our Cloud environment, encompassing Windows Virtual Machines, SQL Servers, and Ubuntu Linux VMs. Log Analytics was employed to ingest logs from diverse sources, empowering Microsoft Sentinel to construct attack maps, trigger alerts, and initiate incident responses. Microsoft Defender for Cloud served as a crucial data source for Log Analytics Workspace (LAW) and aided in evaluating the configuration of Virtual Machines in alignment with regulatory frameworks and security controls. I configured log collection within the vulnerable environment, established security metrics, and monitored the environment continuously for 24 hours. Following an investigation into the incidents flagged by Microsoft Sentinel during this timeframe, security controls were implemented to mitigate the identified threats and bolster the environment based on Microsoft Defender's recommendations. After another 24-hour monitoring phase, new metrics were gathered post-remediation, followed by the adoption of NIST 800-53 standards as a foundational framework to enhance the security posture of our cloud environment.
@@ -160,7 +161,7 @@ Stop Time	2024-05-04 15:37
 A honeynet was set up on Microsoft Azure to attract real-time attacks from potential threat actors. Various log sources were integrated into a Log Analytics workspace. Using these logs, Microsoft Sentinel generated alerts, created incidents, and marked them on our Sentinel map. Furthermore, security metrics were evaluated in this vulnerable setup before and after applying specific security protocols. The results showed a significant decrease in security events and incidents, thanks to adopting selected NIST SP 800-53 guidelines and Microsoft Defender's insights. This highlights the effectiveness of the implemented security measures, which provide a positive assurance for the security posture of our Azure infrastructure.
 
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/82a98b33-addf-4c79-a951-3aa28ab36316)
+![Synapse-Animation_Embargoed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9)
 
 
 
