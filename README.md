@@ -117,6 +117,8 @@ Impact : The account was local to the Linux machine and non-admin, so it had a l
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856)
 
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d)
+
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/Jv8Qaf8.png)<br>
 
 
