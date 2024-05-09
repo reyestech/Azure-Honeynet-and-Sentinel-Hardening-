@@ -79,11 +79,19 @@ The architecture was fortified in the project's subsequent phase to meet NIST SP
 2. Optimized Built-in Firewalls: Carefully tailored firewall rules significantly reduced potential avenues of attack. 
 3. Transition to Private Endpoints: Replaced Public Endpoints with Private Endpoints to restrict access to critical Azure resources exclusively. These enhancements fortified the architecture against potential threats and ensured compliance with security standards, laying a robust foundation for a secure digital environment.
 
-## Microsoft Defender for Cloud | Security posture
+## Attack Maps Before Hardening / Security Controls
+
+Microsoft Defender for Cloud: 
+  - Security posture: In this section we can see a grade showing we are not 
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/343d9f0f-4a53-49c6-b540-0ae7bf918b2e)
 
+NIST SP 800 53 R5
+  - AC. Access Control: In access control we can see what is missing to meet NIST standards.
 
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748)
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9196cc1a-27e9-4932-ad65-e8e00035d3de)
 
 
 
@@ -136,9 +144,8 @@ Stop Time 2024-05-13 11:04:29
 | SecurityIncident         | 662
 | AzureNetworkAnalytics_CL | 1742
 
-## Attack Maps Before Hardening / Security Controls
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
+
 
 ## Metrics After Hardening / Security Controls
 
@@ -153,6 +160,16 @@ Stop Time	2024-05-04 15:37
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
+
+
+
+
+```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
+
+
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e)
+
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/62329081-34b3-4531-be9a-ea4ed3af3cf7)
 
