@@ -190,6 +190,7 @@ Stop Time	2024-05-04 15:37
 
 
 ## Azure Nist Overview
+NIST SP 800-53 is a comprehensive guidebook with security and privacy controls for federal information systems. It helps agencies choose appropriate controls to safeguard operations and meet security requirements. It is the basis for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ef0a32ee-daa3-4dd3-a6a2-c3e8d3ba5f66)
 
