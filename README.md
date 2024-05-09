@@ -1,4 +1,4 @@
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/4799cbed-9b4b-42a1-b531-6b4c81ab016a)
+![ezgif-3-c0f7bbe5ed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2b82889d-ed03-4871-b3c7-152c1c86f1fa)
 
 # Azure Sentinel: Live Honeynet trap and Cloud Network Hardening
 Hector M. Reyes | SOC Analyst:
@@ -15,23 +15,23 @@ Over 24 hours, we observed attacks from various locations globally targeting our
 
 
 ## Methodology:
-Part 1: Environment Setup and Initial Assessment 
-- Deployment of Vulnerable Virtual Machines: I initiated the project by deploying several virtual machines with known vulnerabilities on Azure to simulate an insecure cloud environment. This setup aimed to mirror an insecure cloud environment closely.
+  - Part 1: Environment Setup and Initial Assessment:  
+ Deployment of Vulnerable Virtual Machines: I initiated the project by deploying several virtual machines with known vulnerabilities on Azure to simulate an insecure cloud environment. This setup aimed to mirror an insecure cloud environment closely.
+    
+  - Part 2: Log Data Configuration and Collection:  
+Configuration of Azure for Log Data Collection: Azure was meticulously set up to collect log data from various sources. This data was then stored in a log analytics workspace, ensuring a comprehensive repository of system activities and potential security threats.
 
-Part 2: Log Data Configuration and Collection
-- Configuration of Azure for Log Data Collection: Azure was meticulously set up to collect log data from various sources. This data was then stored in a log analytics workspace, ensuring a comprehensive repository of system activities and potential security threats.
+  - Part 3: Monitoring and Benchmarking  
+24-Hour Monitoring and Benchmarking: Over 24 hours, I actively monitored the environment, focusing on capturing critical security metrics. This phase was crucial for establishing a benchmark, which would later serve as a comparative baseline to gauge the effectiveness of implemented security enhancements.
 
-Part 3: Monitoring and Benchmarking
-- 24-Hour Monitoring and Benchmarking: Over 24 hours, I actively monitored the environment, focusing on capturing critical security metrics. This phase was crucial for establishing a benchmark, which would later serve as a comparative baseline to gauge the effectiveness of implemented security enhancements.
+  - Part 4: Incident Detection and Response  
+Utilization of Microsoft Sentinel for Threat Detection: Leveraging Microsoft Sentinel, I developed attack maps, triggered alerts, and generated incidents based on the collected log data. This proactive approach allowed for the timely identification and addressing of security incidents and vulnerabilities.
 
-Part 4: Incident Detection and Response
-- Utilization of Microsoft Sentinel for Threat Detection: Leveraging Microsoft Sentinel, I developed attack maps, triggered alerts, and generated incidents based on the collected log data. This proactive approach allowed for the timely identification and addressing of security incidents and vulnerabilities.
+  - Part 5: Security Enhancement Implementation  
+Implementation of Security Best Practices: After identifying security issues in our environment, I improved our security posture by implementing best practices, incorporating Azure-specific recommendations, and integrating NIST SP 800-53 Revision 5 for Security Controls and NIST SP 800-61 Revision 2 for Incident Handling Guidance. The goal was to enhance the security of our cloud environment and make it more resilient against potential threats.
 
-Part 5: Security Enhancement Implementation
-- Implementation of Security Best Practices: After identifying security issues in our environment, I improved our security posture by implementing best practices, incorporating Azure-specific recommendations, and integrating NIST SP 800-53 Revision 5 for Security Controls and NIST SP 800-61 Revision 2 for Incident Handling Guidance. The goal was to enhance the security of our cloud environment and make it more resilient against potential threats.
-
-Part 6: Post-Remediation Assessment and Evaluation
-- Reassessment and Evaluation of Security Enhancements: During the final phase, I conducted a 24-hour assessment of the environment to evaluate the security metrics after the remediation. This reassessment was critical in comparing the initial and current security states to quantify the progress and effectiveness of the implemented security enhancements.
+  - Part 6: Post-Remediation Assessment and Evaluation  
+Reassessment and Evaluation of Security Enhancements: During the final phase, I conducted a 24-hour assessment of the environment to evaluate the security metrics after the remediation. This reassessment was critical in comparing the initial and current security states to quantify the progress and effectiveness of the implemented security enhancements.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9e373532-29bd-40c3-8b4c-39569133f645)
 ## Methodology:
@@ -94,20 +94,40 @@ NIST SP 800 53 R5
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9196cc1a-27e9-4932-ad65-e8e00035d3de)
 
 
+# Attack Maps Before Hardening
 
-## NSG ALLOWED MALICIOUS INBOUND FLOWS
+## Azure Network Security Group Attacks
+NSG ALLOWED MALICIOUS INBOUND FLOWS
+  - KQL Query to view our Azure Cloud enviropment's Network Security Group on the custom Map
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/04e1dffa-958e-4d1c-b326-dc75a3ca91df)
+
+
 ![Cloud Honeynet / SOC](https://i.imgur.com/teF7FNx.jpg)
 
-## LINUX SSH/SYSLOG AUTHENTICATION FAILS
+## LINUX SSH Attacks
+SYSLOG AUTHENTICATION FAILS
+  - KQL Query to view attacks on our Linux Ubuntu Virual Machine on the custom Map
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/067e7d93-2757-4375-8d27-4b3472a9900c)
+
+
 ![Cloud Honeynet / SOC](https://i.imgur.com/qUyipqj.jpg)
 
-## MMSL-AUTH-FAIL
-![Cloud Honeynet / SOC](https://i.imgur.com/48AltfS.jpg)
 
-## WINDOWS RDP/SMB AUTHENTICATION FAILURES
+## Windows RDP Attacks
+WINDOWS RDP/SMB AUTHENTICATION FAILURES
+  - KQL Query to view attacks Windows Computers on the custom Map
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/13021670-248a-4aa0-8266-deb373dfd6a7)
+
 ![Cloud Honeynet / SOC](https://i.imgur.com/DEynYqT.jpg)
 
-## MS SQL SERVER AUTHENTICATION FAILURES
+## MS SQL Server Attacks
+MS SQL SERVER AUTHENTICATION FAILURES
+  - KQL Query to view attacks on our SQL Servers on the custom Map
+
+
 ![Cloud Honeynet / SOC](https://i.imgur.com/48AltfS.jpg)
 
 ## Analysis & Incident Assessment 
@@ -162,9 +182,16 @@ Stop Time	2024-05-04 15:37
 | AzureNetworkAnalytics_CL | 0
 
 
+## Post Hardening analysis 
+
+```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.``
 
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
+
+
+To view NIST 
+Microsoft Defender for Cloud | Regulatory compliance
+Microsoft Sentinel > Microsoft Defender for Cloud > Regulatory compliance
 
 
 
@@ -174,6 +201,11 @@ Stop Time	2024-05-04 15:37
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/62329081-34b3-4531-be9a-ea4ed3af3cf7)
 
 
+To view NIST compliance
+Microsoft Defender for Cloud | Regulatory compliance
+Microsoft Sentinel > Microsoft Defender for Cloud > Regulatory compliance
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
 
 ## Conclusion
 
