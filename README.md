@@ -186,24 +186,22 @@ Stop Time	2024-05-04 15:37
 
 ```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.``
 
-
-
-
-To view NIST 
-Microsoft Defender for Cloud | Regulatory compliance
-Microsoft Sentinel > Microsoft Defender for Cloud > Regulatory compliance
-
-
-
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e)
 
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/62329081-34b3-4531-be9a-ea4ed3af3cf7)
+## Azure Nist Overview
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ef0a32ee-daa3-4dd3-a6a2-c3e8d3ba5f66)
 
 
-To view NIST compliance
-Microsoft Defender for Cloud | Regulatory compliance
-Microsoft Sentinel > Microsoft Defender for Cloud > Regulatory compliance
+
+To view NIST SP-800-53-R5 compliance
+  - Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542)
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/430f4980-c604-44d7-bc29-f468c3d18f01)
+
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
 
