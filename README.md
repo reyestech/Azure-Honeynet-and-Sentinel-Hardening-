@@ -152,6 +152,9 @@ Impact : The account was local to the Linux machine and non-admin, so it had a l
 
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/Jv8Qaf8.png)<br>
 
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac)
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa)
 
 ## Metrics Before Hardening / Security Controls
 
@@ -248,6 +251,17 @@ AzureNetworkAnalytics_CL
 ```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.``
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e)
+
+## VLAN and Subnet Created
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/67ba9152-de43-4345-82fd-92b2da05b9f2)
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/fa608462-bba8-4dea-975a-5c9fc9905081)
+
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/49cb6ca9-e3d9-4bd5-bea5-44e0a19cc78a)
+
+
+
 
 
 ## Azure Nist Overview
