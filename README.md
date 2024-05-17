@@ -76,6 +76,7 @@ Monitoring and Analysis
 ## Architecture After Hardening / Security Controls
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/ShquQ5C.jpg)
+
 The architecture was fortified in the project's subsequent phase to meet NIST SP 800-53 Rev4 SC-7(3) Access Points' strict requirements. The following security enhancements were employed:  
 1. Enhanced Network Security Groups (NSGs): They thoroughly block all traffic except that from pre-authorized public IP addresses. 
 2. Optimized Built-in Firewalls: Carefully tailored firewall rules significantly reduced potential avenues of attack. 
@@ -98,7 +99,7 @@ NIST SP 800 53 R5
 
 # Attack Maps Before Hardening
 
-## Azure Network Security Group Attacks
+### Azure Network Security Group Attacks
 NSG ALLOWED MALICIOUS INBOUND FLOWS
   - KQL Query to view our Azure Cloud enviropment's Network Security Group on the custom Map
 
@@ -107,7 +108,7 @@ NSG ALLOWED MALICIOUS INBOUND FLOWS
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/teF7FNx.jpg)
 
-## LINUX SSH Attacks
+### LINUX SSH Attacks
 SYSLOG AUTHENTICATION FAILS
   - KQL Query to view attacks on our Linux Ubuntu Virual Machine on the custom Map
 
@@ -117,7 +118,7 @@ SYSLOG AUTHENTICATION FAILS
 ![Cloud Honeynet / SOC](https://i.imgur.com/qUyipqj.jpg)
 
 
-## Windows RDP Attacks
+### Windows RDP Attacks
 WINDOWS RDP/SMB AUTHENTICATION FAILURES
   - KQL Query to view attacks Windows Computers on the custom Map
 
@@ -125,7 +126,7 @@ WINDOWS RDP/SMB AUTHENTICATION FAILURES
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/DEynYqT.jpg)
 
-## MS SQL Server Attacks
+### MS SQL Server Attacks
 MS SQL SERVER AUTHENTICATION FAILURES
   - KQL Query to view attacks on our SQL Servers on the custom Map
 
@@ -162,7 +163,7 @@ Stop Time 2024-05-13 11:04:29
 | ------------------------ | -----
 | SecurityEvent            | 221542
 | Syslog                   | 2310
-| SecurityAlert            | 0
+| SecurityAlert            | 4
 | SecurityIncident         | 662
 | AzureNetworkAnalytics_CL | 1742
 
@@ -177,14 +178,72 @@ Stop Time	2024-05-04 15:37
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 50
+| SecurityEvent            | 84
 | Syslog                   | 2
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
 
 
-## Post Hardening analysis 
+## Improvement Percentage In Secured Environment
+
+| Results                  | Count
+| ------------------------ | -----
+| Security Events (Windows VMs) | -99.96%
+| Syslog (Ubuntu Linux VMs)     | -99.91%
+| Security Alert (Microsoft Defender for Cloud) | -100.00%
+| Security Incidents (Sentinel Incidents) | -100.00%
+| Azure NSG Inbound Malicious Flows Allowed | -100.00%
+
+
+
+## Queries Used
+### Start & Stop Time
+```
+range x from 1 to 1 step 1
+| project StartTime = ago(24h), StopTime = now()
+```
+### Security Events (Windows VMs)
+```
+SecurityEvent
+| where TimeGenerated >= ago(24h)
+| count
+```
+### Syslog (Ubuntu Linux VMs)  
+```
+Syslog
+| where TimeGenerated >= ago(24h)
+| count
+```
+### Security Alert (Microsoft Defender for Cloud)
+```
+SecurityAlert
+| where DisplayName !startswith "CUSTOM" and DisplayName !startswith "TEST"
+| where TimeGenerated >= ago(24h)
+| count
+```
+### Security Incidents (Sentinel Incidents)
+```
+SecurityIncident
+| where TimeGenerated >= ago(24h)
+| count
+```
+### Azure NSG Inbound Malicious Flows Allowed
+```
+AzureNetworkAnalytics_CL 
+| where FlowType_s == "MaliciousFlow" and AllowedInFlows_d > 0
+| where TimeGenerated >= ago(24h)
+| count
+```
+### Azure NSG Inbound Malicious Flows Allowed
+```
+AzureNetworkAnalytics_CL 
+| where FlowType_s == "MaliciousFlow" and DeniedInFlows_d > 0
+| where TimeGenerated >= ago(24h)
+| count
+```
+
+### Post Hardening analysis 
 
 ```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.``
 
