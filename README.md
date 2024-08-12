@@ -129,6 +129,8 @@ WINDOWS RDP/SMB AUTHENTICATION FAILURES
 ### MS SQL Server Attacks
 MS SQL SERVER AUTHENTICATION FAILURES
   - KQL Query to view attacks on our SQL Servers on the custom Map
+    
+![image](https://github.com/user-attachments/assets/5fd98698-2074-45cf-acca-27c15632e2b7)
 
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/48AltfS.jpg)
