@@ -2,8 +2,13 @@
 
 
 
-# Azure Sentinel: Live Honeynet trap and Cloud Network Hardening
+# Azure Services: Sentinel Live Honeynet and Network Hardening
 Hector M. Reyes | SOC Analyst:
+
+ ### [Alternative Link | Google Docs | Azure Honeynet and Cloud Network Hardening](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
+
+Azure Sentinel: Live Honeynet trap and Cloud Network Hardening
+
 
 ## Introduction
 We will establish a honeynet within our Microsoft Azure Security Information and Event Management (SIEM) system to attract malicious actors worldwide and provoke live attacks on our cloud environment. Our Security Operations Center (SOC) will log, monitor, and analyze the malicious traffic generated, enabling us to conduct incident response effectively. Subsequently, we will implement stringent hardening controls, ensure compliance with regulatory standards such as NIST 800-53, and adhere to Microsoft Defender for Cloud recommendations to fortify the security of our cloud infrastructure.
