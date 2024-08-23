@@ -5,7 +5,7 @@
 # Azure Services: Sentinel Live Honeynet and Network Hardening
 Hector M. Reyes | SOC Analyst:
 
- ### [Google Docs Link | Azure Honeynet and Cloud Network Hardening](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
+ ### [Google Docs Link | Azure Honeynet and Sentinel Network Hardening](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
 
 Azure Sentinel: Live Honeynet trap and Sentinel Network Hardening
 
