@@ -17,7 +17,7 @@ We will establish a honeynet within our Microsoft Azure Security Information and
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb)
 
 ## Objective:
-Over 24 hours, we observed attacks from various locations globally targeting our Cloud environment, encompassing Windows Virtual Machines, SQL Servers, and Ubuntu Linux VMs. Log Analytics was employed to ingest logs from diverse sources, empowering Microsoft Sentinel to construct attack maps, trigger alerts, and initiate incident responses. Microsoft Defender for Cloud served as a crucial data source for Log Analytics Workspace (LAW) and aided in evaluating the configuration of Virtual Machines in alignment with regulatory frameworks and security controls. I configured log collection within the vulnerable environment, established security metrics, and monitored the environment continuously for 24 hours. Following an investigation into the incidents flagged by Microsoft Sentinel during this timeframe, security controls were implemented to mitigate the identified threats and bolster the environment based on Microsoft Defender's recommendations. After another 24-hour monitoring phase, new metrics were gathered post-remediation, followed by the adoption of NIST 800-53 standards as a foundational framework to enhance the security posture of our cloud environment.
+Over 24 hours, we observed attacks from various locations globally targeting our cloud environment, encompassing Windows Virtual Machines, SQL Servers, and Ubuntu Linux VMs. Log Analytics was employed to ingest logs from diverse sources, empowering Microsoft Sentinel to construct attack maps, trigger alerts, and initiate incident responses. Microsoft Defender for Cloud served as a crucial data source for the Log Analytics Workspace (LAW) and aided in evaluating the configuration of virtual machines in alignment with regulatory frameworks and security controls. I configured log collection within the vulnerable environment, established security metrics, and monitored the environment continuously for 24 hours. Following an investigation into the incidents flagged by Microsoft Sentinel during this timeframe, security controls were implemented to mitigate the identified threats and bolster the environment based on Microsoft Defender's recommendations. After another 24-hour monitoring phase, new metrics were gathered post-remediation, followed by the adoption of NIST 800-53 standards as a foundational framework to enhance the security posture of our cloud environment.
 
 ![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
 
@@ -32,7 +32,7 @@ Configuration of Azure for Log Data Collection: Azure was meticulously set up to
 24-Hour Monitoring and Benchmarking: Over 24 hours, I actively monitored the environment, focusing on capturing critical security metrics. This phase was crucial for establishing a benchmark, which would later serve as a comparative baseline to gauge the effectiveness of implemented security enhancements.
 
   - Part 4: Incident Detection and Response  
-Utilization of Microsoft Sentinel for Threat Detection: Leveraging Microsoft Sentinel, I developed attack maps, triggered alerts, and generated incidents based on the collected log data. This proactive approach allowed for the timely identification and addressing of security incidents and vulnerabilities.
+Using Microsoft Sentinel for Threat Detection: By leveraging Microsoft Sentinel, I created attack maps, activated alerts, and produced incidents from the gathered log data. This proactive method facilitated the prompt detection and resolution of security incidents and vulnerabilities.
 
   - Part 5: Security Enhancement Implementation  
 Implementation of Security Best Practices: After identifying security issues in our environment, I improved our security posture by implementing best practices, incorporating Azure-specific recommendations, and integrating NIST SP 800-53 Revision 5 for Security Controls and NIST SP 800-61 Revision 2 for Incident Handling Guidance. The goal was to enhance the security of our cloud environment and make it more resilient against potential threats.
@@ -72,11 +72,11 @@ Monitoring and Analysis
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/iSlfeYX.jpg)
 
-- To bolster your project's security, comprehending and anticipating the strategies employed by cyber adversaries is imperative. This objective can be met by setting up a controlled virtual environment that is deliberately exposed to the public. This approach entices potential hackers, allowing them to observe and analyze their attack methods.
+- To bolster your project's security, comprehending and anticipating the strategies employed by cyber adversaries is imperative. This objective can be met by setting up a controlled virtual environment that is deliberately exposed to the public. This approach entices potential hackers, allowing them to observe and analyze their attack methods.it is imperative to comprehend and anticipate. To achieve this, you can set
 - In the project's preparatory phase, we implemented a dual setup: a Windows virtual machine equipped with an SQL database and a Linux server configured with loosely regulated network security groups (NSGs) to increase their visibility on the internet. Additionally, a storage account and a critical vault with publicly accessible endpoints were established to lure cyber attackers.
 - Throughout this initial phase, Microsoft Sentinel was utilized to oversee the environment, leveraging logs collected by the Log Analytics workspace to monitor activities.
-- This strategic gathering of intelligence provides reassurance about the thoroughness of our process, offering invaluable insights into potential vulnerabilities and security threats and enabling the formulation of robust defense mechanisms before deploying the final solution. Allow All configured.
-- A storage account and critical vault were deployed with public endpoints visible on the open internet to entice these attackers even further. In this stage, Microsoft Sentinel monitored the unsecured environment using logs aggregated by the Log Analytics workspace.
+- This strategic gathering of intelligence provides reassurance about the thoroughness of our process, offering invaluable insights into potential vulnerabilities and security threats and enabling the formulation of robust defense mechanisms before deploying the final solution. Allow All configured. This strategic intelligence gathering. It offers enables
+To further entice these attackers, a storage account and critical vault were deployed with public endpoints visible on the open internet. At this stage, Microsoft Sentinel monitored the unsecured environment using logs aggregated by the Log Analytics workspace.
 
 ## Architecture After Hardening / Security Controls
 
@@ -90,12 +90,12 @@ The architecture was fortified in the project's subsequent phase to meet NIST SP
 ## Attack Maps Before Hardening / Security Controls
 
 Microsoft Defender for Cloud: 
-  - Security posture: In this section we can see a grade showing we are not 
+  - Security posture: In this section, we can see a grade showing we are not 
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/343d9f0f-4a53-49c6-b540-0ae7bf918b2e)
 
 NIST SP 800 53 R5
-  - AC. Access Control: In access control we can see what is missing to meet NIST standards.
+  - AC. Access Control: In access control, we can see what is missing to meet NIST standards.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748)
 
@@ -106,7 +106,7 @@ NIST SP 800 53 R5
 
 ### Azure Network Security Group Attacks
 NSG ALLOWED MALICIOUS INBOUND FLOWS
-  - KQL Query to view our Azure Cloud enviropment's Network Security Group on the custom Map
+  - KQL Query to view our Azure Cloud environment's Network Security Group on the custom Map
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/04e1dffa-958e-4d1c-b326-dc75a3ca91df)
 
@@ -115,7 +115,7 @@ NSG ALLOWED MALICIOUS INBOUND FLOWS
 
 ### LINUX SSH Attacks
 SYSLOG AUTHENTICATION FAILS
-  - KQL Query to view attacks on our Linux Ubuntu Virual Machine on the custom Map
+  - KQL Query to view attacks on our Linux Ubuntu Virtual Machine on the custom Map
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/067e7d93-2757-4375-8d27-4b3472a9900c)
 
@@ -125,7 +125,7 @@ SYSLOG AUTHENTICATION FAILS
 
 ### Windows RDP Attacks
 WINDOWS RDP/SMB AUTHENTICATION FAILURES
-  - KQL Query to view attacks Windows Computers on the custom Map
+  - KQL Query to view attacks on Windows Computers on the custom Map
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/13021670-248a-4aa0-8266-deb373dfd6a7)
 
@@ -149,9 +149,9 @@ Here is a list:
 - Alert 2: Brute Force ATTEMPT - MS SQL Server; ID: 214
 - Alert 3: Brute Force Success - Linux Syslog; ID: 329
 
-Remediated by: Resetting the password for the compromised user and Locked down NSGs
+Remediated by Resetting the password for the compromised user and Locking down NSGs
 
-Impact : The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
+Impact: The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856)
 
@@ -255,7 +255,7 @@ AzureNetworkAnalytics_CL
 
 ### Post Hardening analysis 
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.``
+```All map queries returned no results due to no instances of malicious activity for the 24 hours after hardening.``
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e)
 
@@ -272,7 +272,7 @@ AzureNetworkAnalytics_CL
 
 
 ## Azure Nist Overview
-NIST SP 800-53 is a comprehensive guidebook with security and privacy controls for federal information systems. It helps agencies choose appropriate controls to safeguard operations and meet security requirements. It is the basis for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
+NIST SP 800-53 is a comprehensive guidebook on security and privacy controls for federal information systems. It helps agencies choose appropriate controls to safeguard operations and meet security requirements. The guidebook is also the basis for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ef0a32ee-daa3-4dd3-a6a2-c3e8d3ba5f66)
 
@@ -290,7 +290,7 @@ To view NIST SP-800-53-R5 compliance
 
 ## Conclusion
 
-A honeynet was set up on Microsoft Azure to attract real-time attacks from potential threat actors. Various log sources were integrated into a Log Analytics workspace. Using these logs, Microsoft Sentinel generated alerts, created incidents, and marked them on our Sentinel map. Furthermore, security metrics were evaluated in this vulnerable setup before and after applying specific security protocols. The results showed a significant decrease in security events and incidents, thanks to adopting selected NIST SP 800-53 guidelines and Microsoft Defender's insights. This highlights the effectiveness of the implemented security measures, which provide a positive assurance for the security posture of our Azure infrastructure.
+A honeynet was established on Microsoft Azure to draw real-time attacks from potential threat actors. Various log sources were integrated into a Log Analytics workspace. Microsoft Sentinel generated alerts using these logs, created incidents and marked them on our Sentinel map. Additionally, security metrics were evaluated in this vulnerable setup before and after implementing specific security protocols. The results demonstrated a significant decrease in security events and incidents attributed to adopting selected NIST SP 800-53 guidelines and insights from Microsoft Defender. This outcome highlights the effectiveness of the security measures implemented, providing positive assurance regarding the security posture of our Azure infrastructure.
 
 
 ![Synapse-Animation_Embargoed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9)
