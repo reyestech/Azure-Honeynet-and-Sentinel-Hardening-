@@ -141,25 +141,35 @@ MS SQL SERVER AUTHENTICATION FAILURES
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/48AltfS.jpg)
 
-## Analysis & Incident Assessment 
-I carefully reviewed multiple incidents over 24 hours in a vulnerable environment. For each incident, I thoroughly examined details regarding the attackers, including their IP addresses, the methods they used, the nature of their attacks, and the sequence of events. Additionally, I looked deeper into the IP addresses to scrutinize any associated alerts, distinguish between true and false positives, and accurately assess each incident.
-Incident ID: 329
-- It has been reported that an attack occurred at IP address 74.249.102.160. This IP address was found to be associated with multiple incidents, which triggered several alerts and automatically created incidents.
-Here is a list:
-- Alert 1: Brute Force ATTEMPT – Windows; ID: 205
-- Alert 2: Brute Force ATTEMPT - MS SQL Server; ID: 214
-- Alert 3: Brute Force Success - Linux Syslog; ID: 329
+# Analysis & Incident Assessment 
 
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856" width="300"/>
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d" width="700"/>
+This section highlights how Microsoft Sentinel was used to investigate and respond to coordinated brute-force attacks across Windows, SQL Server, and Linux systems within a 24-hour monitoring period.
+
+**Incident ID: 329** Wass linked to malicious IP 74.249.102.160, which triggered multiple alerts.
+> 1. **Alert 205:** Brute Force Attempt – Windows
+> 2. **Alert 214:** Brute Force Attempt – MS SQL Server
+> 3. **Alert 329:** Brute Force Success – Linux Syslog
+<img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856" width="350"/>
+
+Sentinel analytics helped correlate these events, enabling detailed examination of attacker behavior, IP reputation, and sequence of actions. I analyzed both successful and failed attempts, filtering out false positives and tracking escalation patterns.
+📊 **The included visuals show:**
+> 1.	Sharp spikes in brute-force login attempts during the vulnerable phase
+> 2.	NSG flow logs mapping inbound malicious traffic
+> 3.	Timelines that illustrate how these threats stopped once hardening controls were applied
+
+✅ **Result:** Sentinel detections and NSG rule adjustments significantly reduced the attack surface and prevented further compromise. 
+
+<img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d" width="700"/>
 
 
 ### Azure Investigation Graph 
+> The Investigation Graph automatically visualizes the complete attack chain—connecting alerts, affected hosts, and user accounts in a unified timeline. This enables analysts to swiftly transition from one indicator to corresponding evidence, enhancing the speed of triage and root-cause analysis.
+
 ![image](https://github.com/user-attachments/assets/0b4fd94a-d8f0-46ab-b832-5fdfe0c2858c)
 
 
 ### Application and NSG hardening 
-Remediated by associating and resetting the password for the compromised users and locking down NSGs
+> Remediated by associating and resetting the password for the compromised users and locking down NSGs
 Impact: The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac" width="800"/>
