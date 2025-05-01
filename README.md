@@ -206,8 +206,9 @@ Stop Time	2024-05-04 15:37
 | Azure NSG Inbound Malicious Flows Allowed | -100.00%
 
 
-
-## Queries Used
+<details>
+<summary>KQL Queries Used</summary>
+  
 ### Start & Stop Time
 ```
 range x from 1 to 1 step 1
@@ -252,6 +253,7 @@ AzureNetworkAnalytics_CL
 | where TimeGenerated >= ago(24h)
 | count
 ```
+</details>
 
 ### Post Hardening analysis 
 
