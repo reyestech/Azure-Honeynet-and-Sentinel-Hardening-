@@ -2,25 +2,27 @@
   <img src="https://github.com/user-attachments/assets/544ac8c3-8ffc-44c3-b9fd-347a20dfe786" alt="ezgif-7650866c6a50db" width="900"/>
 </p>
 
-# Azure Services: Sentinel Live Honeynet and Network Hardening
-Hector M. Reyes | SOC Analyst:
+# Azure: Sentinel Honeynet and Network Hardening
+ **Hector M. Reyes | SOC Analyst:**
 
  ### [Google Docs Link | Azure Honeynet and Sentinel Network Hardening](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
 
-Azure Sentinel: Live Honeynet trap and Sentinel Network Hardening
+
+# 🔐**Introduction**  
+
+In this project, I designed and deployed a Security Operations Center (SOC) environment using Microsoft Azure, using Microsoft Sentinel as the central Security Information and Event Management (SIEM) solution. To investigate emerging cyberattack behavior, I set up a honeynet by deploying intentionally vulnerable virtual machines running Windows, Linux, and SQL Servers, all exposed to the internet. This configuration aimed to attract malicious actors from around the globe, allowing for the collection and analysis of real-time attack data and current threat vectors.
+
+The SOC was designed to log, monitor, and analyze malicious traffic, which facilitated effective incident response. After the initial observations, I implemented stringent hardening controls that aligned with regulatory standards, such as NIST SP 800-53. I followed recommendations from Microsoft Defender for Cloud to enhance the security posture of the cloud infrastructure.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb)
 
 
-# Introduction
-We will establish a honeynet within our Microsoft Azure Security Information and Event Management (SIEM) system to attract malicious actors worldwide and provoke live attacks on our cloud environment. Our Security Operations Center (SOC) will log, monitor, and analyze the malicious traffic generated, enabling us to conduct incident response effectively. Subsequently, we will implement stringent hardening controls, ensure compliance with regulatory standards such as NIST 800-53, and adhere to Microsoft Defender for Cloud recommendations to fortify the security of our cloud infrastructure.
+## 🎯 **Objective**  
+This project aimed to evaluate and enhance the security posture of a cloud environment through the simulation of real-world cyberattacks and the establishment of a structured incident response process. A honeynet, consisting of exposed Windows, Linux, and SQL Server virtual machines (VMs), was deployed over 24 hours to attract global cyber threats. Logs collected via Azure Log Analytics facilitated the detection of malicious activities, the generation of alerts, and the initiation of automated incident responses utilizing Microsoft Sentinel.
 
-## Objective:
-Over 24 hours, we observed attacks from various locations globally targeting our cloud environment, encompassing Windows Virtual Machines, SQL Servers, and Ubuntu Linux VMs. Log Analytics was employed to ingest logs from diverse sources, empowering Microsoft Sentinel to construct attack maps, trigger alerts, and initiate incident responses. Microsoft Defender for Cloud served as a crucial data source for the Log Analytics Workspace (LAW) and aided in evaluating the configuration of virtual machines in alignment with regulatory frameworks and security controls. I configured log collection within the vulnerable environment, established security metrics, and monitored the environment continuously for 24 hours. Following an investigation into the incidents flagged by Microsoft Sentinel during this timeframe, security controls were implemented to mitigate the identified threats and bolster the environment based on Microsoft Defender's recommendations. After another 24-hour monitoring phase, new metrics were gathered post-remediation, followed by the adoption of NIST 800-53 standards as a foundational framework to enhance the security posture of our cloud environment.
+Microsoft Defender for Cloud was employed to assess the configurations of the VMs against established compliance benchmarks, thereby identifying existing security vulnerabilities. Following the implementation of hardening measures, an additional assessment was conducted over a 24-hour period to validate the effectiveness of these remediation efforts. The NIST SP 800-53 framework was adopted as the foundational standard to ensure long-term compliance and to strengthen the cloud environment's defenses against potential threats.
 
-![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
-
-## Methodology:
+## **Methodology**
   - Part 1: Environment Setup and Initial Assessment:  
  Deployment of Vulnerable Virtual Machines: I initiated the project by deploying several virtual machines with known vulnerabilities on Azure to simulate an insecure cloud environment. This setup aimed to mirror an insecure cloud environment closely.
     
@@ -38,33 +40,17 @@ Implementation of Security Best Practices: After identifying security issues in 
 
   - Part 6: Post-Remediation Assessment and Evaluation  
 Reassessment and Evaluation of Security Enhancements: During the final phase, I conducted a 24-hour assessment of the environment to evaluate the security metrics after the remediation. This reassessment was critical in comparing the initial and current security states to quantify the progress and effectiveness of the implemented security enhancements.
+# **🛠️ Key Skills**  
+> 1. **Azure Security Architecture:** Designed and implemented a secure cloud infrastructure within Microsoft Azure.
+> 2. -**SIEM Log Analytics:** Utilized Microsoft Sentinel for real-time monitoring and analysis of security events.
+> 3. -**Kusto Query Language (KQL):** Developed and executed queries for effective threat hunting and data analysis.
+> 4. -**Threat Detection & Response:** Identified and responded to security incidents, enhancing the environment's resilience.
+> 5. -**Vulnerability Management:** Assessed and mitigated vulnerabilities within the cloud infrastructure.
+> 6. -**Compliance Governance:** Ensured adherence to regulatory standards and best practices.
+> 7. -**Cloud Networking:** Configured and managed network security groups and virtual networks.
+> 8. -**Automation:** Implemented automated responses to security incidents, streamlining operations.
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9e373532-29bd-40c3-8b4c-39569133f645)
-## Methodology:
-Infrastructure Setup
-Azure Virtual Network (VNet): 
-- The foundational network layer in Azure.
-- Virtual Machines (2 Windows VMs, 1 Linux VM): The compute resources where applications and services run.
-- Azure Storage Account: Provides scalable cloud storage for data, applications, and workloads.
-
-Security and Compliance
-- Azure Network Security Groups (NSG): Controls inbound and outbound traffic to Azure resources.
-- Azure Key Vault: Manages and protects cryptographic keys and other secrets used by cloud apps and services.
-- Microsoft Defender for Cloud: Offers integrated security monitoring and policy management across Azure resources.
-- NIST SP 800-53 Revision 5 for Security Controls provides a catalog of security and privacy controls for federal information systems and organizations.
-- NIST SP 800-61 Revision 2 for Incident Handling Guidance offers guidance on effectively responding to and managing incidents.
-
-Management and Operations
-- Microsoft SQL Server on VMs: A relational database server is used for various transactional and analytical operations.
-- SQL Server Management Studio (SSMS): An integrated environment for managing any SQL infrastructure.
-- Azure Active Directory: Microsoft's multi-tenant, cloud-based directory and identity management service.
-- PowerShell: A task automation and configuration management framework.
-- Command Line Interface (CLI): Users can interact with their computer's operating system or software by typing commands.
-
-Monitoring and Analysis
-- Log Analytics Workspace with Kusto Query Language (KQL) Queries is a tool for collecting, searching, and analyzing log data.
-- Microsoft Sentinel (SIEM) provides security information and event management, including threat detection, proactive hunting, and threat response.
-- Syslog (Linux Event Logs) and Windows Event Viewer are tools for logging and analyzing system events on Linux and Windows systems, respectively.
+![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
 
 
 ## Architecture Before Hardening / Security Controls
@@ -169,7 +155,7 @@ Sentinel analytics helped correlate these events, enabling detailed examination 
 
 
 ### Application and NSG hardening 
-> Remediated by associating and resetting the password for the compromised users and locking down NSGs
+> Remediated by associating and resetting the passwords for the compromised users and locking down NSGs
 Impact: The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac" width="800"/>
