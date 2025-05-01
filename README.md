@@ -102,6 +102,8 @@ NIST SP 800 53 R5
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9196cc1a-27e9-4932-ad65-e8e00035d3de)
 
 
+---
+
 # Attack Maps Before Hardening
 
 ### Azure Network Security Group Attacks
@@ -163,48 +165,86 @@ Impact: The account was local to the Linux machine and non-admin, so it had a lo
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa)
 
-## Metrics Before Hardening / Security Controls
 
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2024-05-02 10:57:29
-Stop Time 2024-05-13 11:04:29
+## 📊 Post-Hardening
 
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 221542
-| Syslog                   | 2310
-| SecurityAlert            | 4
-| SecurityIncident         | 662
-| AzureNetworkAnalytics_CL | 1742
+> All map queries returned no results due to zero malicious activity during the 24 hours following hardening.
 
+<p align="left">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e" alt="No incidents after hardening" width="700"/>
+</p>
 
+---
 
+### 🔐 VLAN and Subnet Configuration
 
-## Metrics After Hardening / Security Controls
-
-The following table shows the metrics we measured in our environment for another 24 hours, but after we applied security controls:
-Start Time 2024-05-04 12:37
-Stop Time	2024-05-04 15:37
-
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 84
-| Syslog                   | 2
-| SecurityAlert            | 0
-| SecurityIncident         | 0
-| AzureNetworkAnalytics_CL | 0
+<p align="left">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/67ba9152-de43-4345-82fd-92b2da05b9f2" alt="Subnet config 1" width="330"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/fa608462-bba8-4dea-975a-5c9fc9905081" alt="Subnet config 2" width="340"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/49cb6ca9-e3d9-4bd5-bea5-44e0a19cc78a" alt="Subnet config 3" width="330"/>
+</p>
 
 
-## Improvement Percentage In Secured Environment
+![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
 
-| Results                  | Count
-| ------------------------ | -----
-| Security Events (Windows VMs) | -99.96%
-| Syslog (Ubuntu Linux VMs)     | -99.91%
-| Security Alert (Microsoft Defender for Cloud) | -100.00%
-| Security Incidents (Sentinel Incidents) | -100.00%
-| Azure NSG Inbound Malicious Flows Allowed | -100.00%
+### 🧰 Azure NIST Overview
 
+NIST SP 800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
+
+To view NIST SP-800-53-R5 compliance:
+- Go to **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/430f4980-c604-44d7-bc29-f468c3d18f01" alt="Defender compliance 2" width="700"/>
+
+
+---
+
+# Summary
+
+## Architecture
+
+> 🧱 This side-by-side comparison highlights how exposed infrastructure was transformed into a secured environment by integrating best practices like private endpoints and NSG restrictions.
+
+| Stage | Diagram | Description |
+|-------|---------|-------------|
+| **Before Hardening** | <img src="https://i.imgur.com/iSlfeYX.jpg" alt="Pre-hardening architecture" width="350"> | Public-facing VMs & services intentionally exposed to attract attackers. |
+| **After Hardening**  | <img src="https://i.imgur.com/ShquQ5C.jpg" alt="Post-hardening architecture" width="350"> | NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3). |
+
+
+
+---
+
+## Methodology
+
+> 🔍 Each phase followed a logical progression from open exposure to complete remediation. Sentinel, Defender, and NIST guidelines were used together to identify threats and harden the environment based on real-world telemetry.
+
+| Phase | Key Actions |
+|-------|-------------|
+| **1  Environment Build** | Deployed 2 Windows VMs, 1 Ubuntu VM, SQL Server, Storage Account & Key Vault with permissive NSGs. |
+| **2  Log Collection**   | Enabled diagnostic settings → Log Analytics; onboarded Defender for Cloud & Sentinel. |
+| **3  Baseline (24 h)**  | Captured attacks, created Sentinel alerts/incidents, stored metrics for comparison. |
+| **4  Hardening**        | Applied Microsoft & NIST recommendations (NSGs, firewalls, private endpoints, IAM). |
+| **5  Post-Remediation (24 h)** | Re-monitored metrics; validated 0 incidents and 0 malicious flows. |
+
+---
+
+## Metrics & Results
+
+> 📉 The dramatic drop in alerts, flows, and incidents demonstrates how quickly and effectively the environment improved after targeted hardening strategies were implemented.
+
+### ⏱️ Before vs After (24 h)
+
+| Metric | Before | After | Δ % |
+|--------|-------:|------:|----:|
+| **Security Events** (Windows) | 221 542 | 84 | **-99.96** |
+| **Syslog** (Linux)            | 2 310   | 2  | **-99.91** |
+| **Security Alerts**           | 4       | 0  | **-100.00** |
+| **Sentinel Incidents**        | 662     | 0  | **-100.00** |
+| **Malicious NSG Flows**       | 1 742   | 0  | **-100.00** |
+
+> 🔍 These figures confirm a complete elimination of detected attacks after hardening.
+
+## Kusto Query Language (KQL) & Python SDK Automation Queries
 
 <details>
 <summary>KQL Queries Used</summary>
@@ -255,36 +295,7 @@ AzureNetworkAnalytics_CL
 ```
 </details>
 
-## 📊 Post-Hardening
-
-> All map queries returned no results due to zero malicious activity during the 24 hours following hardening.
-
-<p align="left">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e" alt="No incidents after hardening" width="700"/>
-</p>
-
 ---
-
-### 🔐 VLAN and Subnet Configuration
-
-<p align="left">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/67ba9152-de43-4345-82fd-92b2da05b9f2" alt="Subnet config 1" width="330"/>
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/fa608462-bba8-4dea-975a-5c9fc9905081" alt="Subnet config 2" width="340"/>
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/49cb6ca9-e3d9-4bd5-bea5-44e0a19cc78a" alt="Subnet config 3" width="330"/>
-</p>
-
----
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
-
-### 🧰 Azure NIST Overview
-
-NIST SP 800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
-
-To view NIST SP-800-53-R5 compliance:
-- Go to **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/430f4980-c604-44d7-bc29-f468c3d18f01" alt="Defender compliance 2" width="700"/>
 
 ## Conclusion
 
