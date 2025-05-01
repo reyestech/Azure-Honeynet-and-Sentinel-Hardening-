@@ -151,20 +151,20 @@ Here is a list:
 - Alert 2: Brute Force ATTEMPT - MS SQL Server; ID: 214
 - Alert 3: Brute Force Success - Linux Syslog; ID: 329
 
-Remediated by Resetting the password for the compromised user and Locking down NSGs
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856" width="300"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d" width="700"/>
 
+
+### Azure Investigation Graph 
+![image](https://github.com/user-attachments/assets/0b4fd94a-d8f0-46ab-b832-5fdfe0c2858c)
+
+
+### Application and NSG hardening 
+Remediated by associating and resetting the password for the compromised users and locking down NSGs
 Impact: The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856)
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d)
-
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/Jv8Qaf8.png)<br>
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac)
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa)
-
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac" width="800"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa" width="800"/>
 
 ## 📊 Post-Hardening
 
