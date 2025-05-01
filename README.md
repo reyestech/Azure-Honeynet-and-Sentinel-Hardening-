@@ -255,44 +255,40 @@ AzureNetworkAnalytics_CL
 ```
 </details>
 
-### Post Hardening analysis 
+## 📊 Post-Hardening
 
-```All map queries returned no results due to no instances of malicious activity for the 24 hours after hardening.``
+> All map queries returned no results due to zero malicious activity during the 24 hours following hardening.
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e)
+<p align="left">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e" alt="No incidents after hardening" width="700"/>
+</p>
 
-## VLAN and Subnet Created
+---
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/67ba9152-de43-4345-82fd-92b2da05b9f2)
+### 🔐 VLAN and Subnet Configuration
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/fa608462-bba8-4dea-975a-5c9fc9905081)
+<p align="left">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/67ba9152-de43-4345-82fd-92b2da05b9f2" alt="Subnet config 1" width="330"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/fa608462-bba8-4dea-975a-5c9fc9905081" alt="Subnet config 2" width="340"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/49cb6ca9-e3d9-4bd5-bea5-44e0a19cc78a" alt="Subnet config 3" width="330"/>
+</p>
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/49cb6ca9-e3d9-4bd5-bea5-44e0a19cc78a)
-
-
-
-
-
-## Azure Nist Overview
-NIST SP 800-53 is a comprehensive guidebook on security and privacy controls for federal information systems. It helps agencies choose appropriate controls to safeguard operations and meet security requirements. The guidebook is also the basis for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ef0a32ee-daa3-4dd3-a6a2-c3e8d3ba5f66)
-
-
-
-To view NIST SP-800-53-R5 compliance
-  - Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542)
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/430f4980-c604-44d7-bc29-f468c3d18f01)
-
+---
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
 
+### 🧰 Azure NIST Overview
+
+NIST SP 800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
+
+To view NIST SP-800-53-R5 compliance:
+- Go to **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/430f4980-c604-44d7-bc29-f468c3d18f01" alt="Defender compliance 2" width="700"/>
+
 ## Conclusion
 
-A honeynet was established on Microsoft Azure to draw real-time attacks from potential threat actors. Various log sources were integrated into a Log Analytics workspace. Microsoft Sentinel generated alerts using these logs, created incidents and marked them on our Sentinel map. Additionally, security metrics were evaluated in this vulnerable setup before and after implementing specific security protocols. The results demonstrated a significant decrease in security events and incidents attributed to adopting selected NIST SP 800-53 guidelines and insights from Microsoft Defender. This outcome highlights the effectiveness of the security measures implemented, providing positive assurance regarding the security posture of our Azure infrastructure.
+A honeynet was established on Microsoft Azure to draw real-time attacks from potential threat actors. Various log sources were integrated into a Log Analytics workspace. Microsoft Sentinel generated alerts using these logs, created incidents, and marked them on our Sentinel map. Additionally, security metrics were evaluated in this vulnerable setup before and after implementing specific security protocols. The results demonstrated a significant decrease in security events and incidents attributed to adopting selected NIST SP 800-53 guidelines and insights from Microsoft Defender. This outcome highlights the effectiveness of the security measures implemented, providing positive assurance regarding the security posture of our Azure infrastructure.
 
 
 ![Synapse-Animation_Embargoed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9)
