@@ -1,6 +1,6 @@
-![ezgif-3-c0f7bbe5ed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2b82889d-ed03-4871-b3c7-152c1c86f1fa)
-
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/544ac8c3-8ffc-44c3-b9fd-347a20dfe786" alt="ezgif-7650866c6a50db" width="900"/>
+</p>
 
 # Azure Services: Sentinel Live Honeynet and Network Hardening
 Hector M. Reyes | SOC Analyst:
