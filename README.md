@@ -168,8 +168,8 @@ Impact: The account was local to the Linux machine and non-admin, so it had a lo
 
 ## 📊 Post-Hardening
 
-> All map queries returned no results due to zero malicious activity during the 24 hours following hardening.
-
+All map queries returned no results due to zero malicious activity during the 24 hours following hardening.
+After implementing hardening measures, we detected no malicious activity. All queries on the Sentinel map returned zero results, confirming the effectiveness of tightening our Network Security Groups (NSGs), utilizing private endpoints, and adhering to compliance requirements. By following Microsoft-recommended hardening steps alongside NIST SP 800-53 controls, we successfully reduced malicious traffic and incidents to zero within 24 hours.
 <p align="left">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e" alt="No incidents after hardening" width="700"/>
 </p>
@@ -178,27 +178,39 @@ Impact: The account was local to the Linux machine and non-admin, so it had a lo
 
 ### 🔐 VLAN and Subnet Configuration
 
+These visuals demonstrate how the lab's single virtual network was divided into **three purpose-built subnets**. These subnets act as isolation zones, restricting traffic and limiting the blast radius if an attacker compromises a single host.
+> **Azure Topology:** The topology view in Azure displays every virtual machine (VM), database, and gateway on its subnet within a single virtual network. These subnets are separate rooms within the same building, each with doors (network security groups) that can be locked individually. The resource list in the right-hand pane is filtered by subnet, confirming that web, SQL, and management workloads reside in their segments.
+
 <p align="left">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/67ba9152-de43-4345-82fd-92b2da05b9f2" alt="Subnet config 1" width="330"/>
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/fa608462-bba8-4dea-975a-5c9fc9905081" alt="Subnet config 2" width="340"/>
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/49cb6ca9-e3d9-4bd5-bea5-44e0a19cc78a" alt="Subnet config 3" width="330"/>
 </p>
 
+---
+
+### 🧰 Azure NIST Overview
+NIST SP-800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
+To check NIST SP-800-53-R5 compliance:
+> Navigate to: **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
+
+
+**NIST Protection:** 
+A high-level use case for implementing NIST controls involves thoroughly examining the security lifecycle. This process includes the following stages:
+> 1. **Build:** Develop security frameworks using the NIST workbook as a foundational guide. 
+> 2. **Assess:** Conduct assessments with tools like Sentinel to identify vulnerabilities and gaps within the security infrastructure.
+> 3. **Remediate:** Implement Azure DDoS protection to address identified threats.
+> 4. **Monitor:** Continuously oversee and evaluate security measures to ensure their effectiveness.
+> 5. **Respond:** Utilize an automated playbook designed to notify the governance team of any security incidents.
+
+This systematic approach promotes effective management of security controls throughout their lifecycle, ensuring organizational resilience against potential threats.
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
 
-### 🧰 Azure NIST Overview
-
-NIST SP 800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
-To check NIST SP-800-53-R5 compliance:
-- Navigate to: **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/430f4980-c604-44d7-bc29-f468c3d18f01" alt="Defender compliance 2" width="700"/>
-
-
 ---
 
-# Summary
+# Azure SIEM Harderning Summary
 
 ## Architecture
 
