@@ -22,25 +22,25 @@ This project aimed to evaluate and enhance the security posture of a cloud envir
 
 Microsoft Defender for Cloud was used to assess the VMs' configurations against established compliance benchmarks, identifying existing security vulnerabilities. Following the implementation of hardening measures, an additional assessment was conducted over a 24-hour period to validate the effectiveness of these remediation efforts. The NIST SP 800-53 framework was adopted as the foundational standard to ensure long-term compliance and to strengthen the cloud environment's defenses against potential threats.
 
-## **Methodology**
-  - Part 1: Environment Setup and Initial Assessment:  
- Deployment of Vulnerable Virtual Machines: I initiated the project by deploying several virtual machines with known vulnerabilities on Azure to simulate an insecure cloud environment. This setup was designed to closely mirror an insecure cloud environment.
-    
-  - Part 2: Log Data Configuration and Collection:  
-Configuration of Azure for Log Data Collection: Azure was meticulously set up to collect log data from various sources. This data was then stored in a log analytics workspace, ensuring a comprehensive repository of system activities and potential security threats.
+## **Methodology Overview**
+This project adopted a structured six-phase approach to attract, detect, simulate, monitor, and defend against real-world cyber threats within a live cloud environment. The primary aim was to entice malicious activity, contain it within a controlled sandbox setting, and extract insights to enhance threat detection and response mechanisms.
 
-  - Part 3: Monitoring and Benchmarking  
-24-Hour Monitoring and Benchmarking: Over a 24-hour period, I actively monitored the environment, focusing on capturing critical security metrics. This phase was crucial for establishing a benchmark, which would later serve as a comparative baseline to gauge the effectiveness of implemented security enhancements.
+1. **Environment Setup and Initial Assessment:**
+Intentionally vulnerable virtual machines, including Windows, Linux, and SQL Server, were deployed in Azure to replicate an insecure production environment. This configuration effectively functioned as a honeynet designed to attract live cyber threats and simulate adversarial behavior within a controlled environment.
+2. **Log Data Configuration and Collection:**
+Azure resources were configured to forward system, network, and security logs to a centralized Log Analytics workspace. This arrangement ensured comprehensive visibility and facilitated the correlation of suspicious activities throughout the cloud environment.
+3. **Monitoring and Benchmarking:**
+A 24-hour monitoring period was implemented to capture critical security events and performance metrics. This initiative provided a benchmark for identifying abnormal behavior and assessing the effectiveness of future remediation efforts.
+4. **Incident Detection and Response:**
+Remedial actions were undertaken based on Azure best practices, aligning with NIST SP 800-53 controls and NIST SP 800-61 incident handling guidance. These measures enhanced the overall security posture of the environment and ensured compliance with applicable industry standards.
+5. **Security Enhancement Implementation:**
+Remedial actions were undertaken based on Azure best practices, aligning with NIST SP 800-53 controls and NIST SP 800-61 incident handling guidance. These measures enhanced the overall security posture of the environment and ensured compliance with applicable industry standards.
+6. **Post-Remediation Assessment and Evaluation:**
+A subsequent 24-hour monitoring period was conducted to evaluate the effectiveness of the security enhancements. Data from both assessment phases were analyzed and compared to quantify improvements and verify a reduced vulnerability to contemporary threat actors.
 
-  - Part 4: Incident Detection and Response  
-Using Microsoft Sentinel for Threat Detection: By leveraging Microsoft Sentinel, I created attack maps, activated alerts, and produced incidents from the gathered log data. This proactive method facilitated the prompt detection and resolution of security incidents and vulnerabilities.
+![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
 
-  - Part 5: Security Enhancement Implementation  
-Implementation of Security Best Practices: After identifying security issues in our environment, I improved our security posture by implementing best practices, incorporating Azure-specific recommendations, and integrating NIST SP 800-53 Revision 5 for Security Controls and NIST SP 800-61 Revision 2 for Incident Handling Guidance. The goal was to enhance the security of our cloud environment and make it more resilient against potential threats.
-
-  - Part 6: Post-Remediation Assessment and Evaluation  
-Reassessment and Evaluation of Security Enhancements: During the final phase, I conducted a 24-hour assessment of the environment to evaluate the security metrics after the remediation had been implemented. This reassessment was critical in comparing the initial and current security states to quantify the progress and effectiveness of the implemented security enhancements.
-# **🛠️ Key Skills**  
+### **Key Skills**  
 > 1. **Azure Security Architecture:** Designed and implemented a secure cloud infrastructure within Microsoft Azure.
 > 2. **SIEM Log Analytics:** Utilized Microsoft Sentinel for real-time monitoring and analysis of security events.
 > 3. **Kusto Query Language (KQL):** Developed and executed queries for effective threat hunting and data analysis.
@@ -49,9 +49,6 @@ Reassessment and Evaluation of Security Enhancements: During the final phase, I 
 > 6. **Compliance Governance:** Ensured adherence to regulatory standards and best practices.
 > 7. **Cloud Networking:** Configured and managed network security groups and virtual networks.
 > 8. **Automation:** Implemented automated responses to security incidents, streamlining operations.
-
-
-![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
 
 ---
 
