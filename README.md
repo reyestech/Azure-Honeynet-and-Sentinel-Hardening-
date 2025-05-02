@@ -3,18 +3,19 @@
 </p>
 
 # Azure: Sentinel Honeynet and Network Hardening
- **Hector M. Reyes | SOC Analyst**
+ **Hector M. Reyes | SOC Analyst** |  [Google Docs Version](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
 
- ### [Google Docs Link | Azure Honeynet and Sentinel Network Hardening](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
+---
 
-
-# 🔐**Introduction**  
+<h2 align="center">🔐 Introduction</h2>
 
 In this project, I designed and deployed a Security Operations Center (SOC) environment using Microsoft Azure, using Microsoft Sentinel as the central Security Information and Event Management (SIEM) solution. To investigate emerging cyberattack behavior, I set up a honeynet by deploying intentionally vulnerable virtual machines running Windows, Linux, and SQL Servers, all of which were exposed to the internet. This configuration was designed to attract malicious actors from around the globe, enabling the collection and analysis of real-time attack data and current threat vectors.
 
 The SOC was designed to log, monitor, and analyze malicious traffic, which facilitated effective incident response. After the initial observations, I implemented stringent hardening controls that aligned with regulatory standards, such as NIST SP 800-53. I followed recommendations from Microsoft Defender for Cloud to enhance the security posture of the cloud infrastructure.
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb)
+<p align="center">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
+</p>
 
 
 ## 🎯 **Objective**  
@@ -52,25 +53,25 @@ A subsequent 24-hour monitoring period was conducted to evaluate the effectivene
 
 ---
 
-## Architecture Before Hardening / Security Controls
-
-- To bolster your project's security, comprehending and anticipating the strategies employed by cyber adversaries is imperative. This objective can be met by setting up a controlled virtual environment that is intentionally made public. This approach entices potential hackers, allowing them to observe and analyze their attack methods. It is imperative to comprehend and anticipate. To achieve this, you can set
-- In the project's preparatory phase, we implemented a dual setup: a Windows virtual machine equipped with an SQL database and a Linux server configured with loosely regulated network security groups (NSGs) to increase their visibility on the internet. Additionally, a storage account and a critical vault with publicly accessible endpoints were established to lure cyber attackers.
-- Throughout this initial phase, Microsoft Sentinel was utilized to oversee the environment, leveraging logs collected by the Log Analytics workspace to monitor activities.
-- This strategic gathering of intelligence provides reassurance about the thoroughness of our process, offering invaluable insights into potential vulnerabilities and security threats and enabling the formulation of robust defense mechanisms before deploying the final solution. Allow All is configured. This is a strategic intelligence gathering. It offers enables
-To further entice these attackers, a storage account and a critical vault were deployed with public endpoints visible on the open internet. At this stage, Microsoft Sentinel monitored the unsecured environment using logs aggregated by the Log Analytics workspace.
+## 🔓 **Before Hardening: Insecure Cloud Architecture**
+The initial cloud architecture was intentionally misconfigured to simulate a high-risk production-like environment, resembling those typically found in real-world security incidents. This insecure setup was designed to attract live cyber threats, gather telemetry data, and identify common attack vectors. Azure resources were purposefully exposed with minimal access restrictions, creating a controlled environment for observing adversary behavior.
+1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfigurations
+2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
+3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
 
 ![68747470733a2f2f692e696d6775722e636f6d2f69536c666559582e6a7067](https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918)
 
 
-## Architecture After Hardening / Security Controls
+## 🔐**After Hardening: Secure & Compliant Architecture**
+After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
 
-The architecture was fortified in the project's subsequent phase to meet the strict requirements of NIST SP 800-53 Rev 4 SC-7(3) for Access Points. The following security enhancements were employed:  
-1. Enhanced Network Security Groups (NSGs): They thoroughly block all traffic except that from pre-authorized public IP addresses. 
-2. Optimized Built-in Firewalls: Carefully tailored firewall rules significantly reduced potential attack avenues. 
-3. Transition to Private Endpoints: Replaced Public Endpoints with Private Endpoints to restrict access to critical Azure resources exclusively. These enhancements fortified the architecture against potential threats and ensured compliance with security standards, laying a robust foundation for a secure digital environment.
+This transformation highlights the critical role of Security Operations Center (SOC) analysts, who use platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
+1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
+2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
+3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
 
 ![68747470733a2f2f692e696d6775722e636f6d2f536871755135432e6a7067](https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160)
+
 
 ---
 
