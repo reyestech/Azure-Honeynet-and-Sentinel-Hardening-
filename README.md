@@ -79,60 +79,120 @@ This transformation highlights the critical role of Security Operations Center (
 
 ---
 
-## Attack Maps Before Hardening / Security Controls
 
-Microsoft Defender for Cloud: 
-  - Security posture: In this section, we can see a grade showing that we are not 
+# 📉 Attack Surface Before Hardening
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/343d9f0f-4a53-49c6-b540-0ae7bf918b2e)
+## 🛡️Microsoft Defender for Cloud – Initial Posture
 
-NIST SP 800 53 R5
-  - AC. Access Control: In access control, we can see what is missing to meet NIST standards.
+Overview: Initial assessment revealed a low security posture and a lack of compliance with access control standards.
+  - Security Score:
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748)
-
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9196cc1a-27e9-4932-ad65-e8e00035d3de)
+<p align="left">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/343d9f0f-4a53-49c6-b540-0ae7bf918b2e" width="400">
+</p>
 
 
----
+  - NIST SP 800-53 R5 – Access Control (AC) Findings:
+> AC. Access Control: In access control, we can see what is missing to meet NIST standards.
 
-# Attack Maps Before Hardening
+<p align="left">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748" width="800">
+</p>
 
-### Azure Network Security Group Attacks
-NSG ALLOWED MALICIOUS INBOUND FLOWS
-  - KQL Query to view our Azure Cloud environment's Network Security Group on the custom Map
+
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/b79fc23a-764b-4b23-afe5-2962621f2e6b" width="800">
+</p>
+
+
+# 🌍 Attack Maps Before Hardening
+
+## 🌐 1. Network Security Group (NSG) – Malicious Inbound Flows
+> Description: NSGs allowed inbound traffic from untrusted IPs.
+ <details>
+   <summary><strong> 🔹KQL Query: NSGs traffic  </strong></summary>
+     
+NSG traffic
+```kql
+AzureNetworkAnalytics_CL
+| where FlowType_s == "MaliciousFlow" and AllowedInFlows_d >= 1
+| project TimeGenerated, IpAddress = SrcIP_s, DestinationIpAddress = DestIP_s
+```
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/04e1dffa-958e-4d1c-b326-dc75a3ca91df)
 
+</details>
 
-![Cloud Honeynet / SOC](https://i.imgur.com/teF7FNx.jpg)
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="800">
+</p>
 
-### LINUX SSH Attacks
-SYSLOG AUTHENTICATION FAILS
-  - KQL Query to view attacks on our Linux Ubuntu Virtual Machine on the custom Map
+
+## 🐧2. Linux SSH Attacks – Authentication Failures
+> Description: Detected failed SSH login attempts targeting Ubuntu VM.
+ <details>
+   <summary><strong> 🔹KQL Query: SSH Attacks </strong></summary>
+   
+SSH Authentication Fails
+```kql
+Syslog
+| where Facility == "auth" and SyslogMessage contains "Failed password"
+```
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/067e7d93-2757-4375-8d27-4b3472a9900c)
 
+</details>
 
-![Cloud Honeynet / SOC](https://i.imgur.com/qUyipqj.jpg)
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/f722c441-841d-4044-9181-3f2cea84a558" width="800">
+</p>
 
 
-### Windows RDP Attacks
-WINDOWS RDP/SMB AUTHENTICATION FAILURES
-  - KQL Query to view attacks on Windows Computers on the custom Map
+
+## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
+> Description: Observed brute-force attempts via RDP/SMB protocols on Windows VMs.
+ <details>
+   <summary><strong> 🔹KQL Query: SMB/RDP Attacks </strong></summary>
+   
+RDP Authentication Fails
+```kql
+SecurityEvent
+| where EventID == 4625
+| where LogonType == 10
+```
 
 ![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/13021670-248a-4aa0-8266-deb373dfd6a7)
 
-![Cloud Honeynet / SOC](https://i.imgur.com/DEynYqT.jpg)
+</details>
 
-### MS SQL Server Attacks
-MS SQL SERVER AUTHENTICATION FAILURES
-  - KQL Query to view attacks on our SQL Servers on the custom Map
-    
-![image](https://github.com/user-attachments/assets/5fd98698-2074-45cf-acca-27c15632e2b7)
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/97d93c53-713c-4857-9643-a3149a2317f0" width="800">
+</p>
 
-![Cloud Honeynet / SOC](https://i.imgur.com/48AltfS.jpg)
 
+## 🛢️ 4. SQL Server Attacks – Authentication Failures
+> - Description: Repeated failed login attempts targeting exposed SQL Server.
+<details>
+  <summary><strong> 🔹KQL Query: SQL Server Attacks </strong></summary>
+
+SQL Server Authentication Fails
+```kql
+// Failed SQL logins
+SqlSecurityAuditEvents
+| where action_name == "FAILED_LOGIN"
+```
+  
+  ![image](https://github.com/user-attachments/assets/06872696-6720-4d20-8d54-68233c7ab16d)
+
+</details>
+
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/a687ffa2-0469-4f4a-a54b-8758583b7985" width="800">
+</p>
+
+
+
+---
 
 # Analysis & Incident Assessment 
 
