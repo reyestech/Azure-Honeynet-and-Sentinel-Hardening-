@@ -39,7 +39,11 @@ Remedial actions were undertaken based on Azure best practices, aligning with NI
 6. **Post-Remediation Assessment and Evaluation:**
 A subsequent 24-hour monitoring period was conducted to evaluate the effectiveness of the security enhancements. Data from both assessment phases were analyzed and compared to quantify improvements and verify a reduced vulnerability to contemporary threat actors.
 
-![storage_explorer_web](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb)
+<h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
+
+<p align="center">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="800">
+</p>
 
 ### **Key Skills**  
 > 1. **Azure Security Architecture:** Designed and implemented a secure cloud infrastructure within Microsoft Azure.
