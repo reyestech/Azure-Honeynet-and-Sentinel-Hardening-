@@ -3,7 +3,7 @@
 </p>
 
 # Azure: Sentinel Honeynet and Network Hardening
- **Hector M. Reyes | SOC Analyst:**
+ **Hector M. Reyes | SOC Analyst**
 
  ### [Google Docs Link | Azure Honeynet and Sentinel Network Hardening](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
 
