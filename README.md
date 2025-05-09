@@ -76,11 +76,10 @@ This transformation highlights the critical role of Security Operations Center (
 
 ![68747470733a2f2f692e696d6775722e636f6d2f536871755135432e6a7067](https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160)
 
-
 ---
 
 
-# 📉 Attack Surface Before Hardening
+# 📉 Attack Surface Before Hardening 
 
 ## 🛡️Microsoft Defender for Cloud – Initial Posture
 
@@ -99,13 +98,12 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748" width="800">
 </p>
 
-
 <p align="left">
   <img src="https://github.com/user-attachments/assets/b79fc23a-764b-4b23-afe5-2962621f2e6b" width="800">
 </p>
 
 
-# 🌍 Attack Maps Before Hardening
+## 🌍 Attack Maps Before Hardening
 
 ## 🌐 1. Network Security Group (NSG) – Malicious Inbound Flows
 > Description: NSGs allowed inbound traffic from untrusted IPs.
@@ -146,7 +144,6 @@ Syslog
 <p align="left">
   <img src="https://github.com/user-attachments/assets/f722c441-841d-4044-9181-3f2cea84a558" width="800">
 </p>
-
 
 
 ## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
@@ -190,11 +187,9 @@ SqlSecurityAuditEvents
   <img src="https://github.com/user-attachments/assets/a687ffa2-0469-4f4a-a54b-8758583b7985" width="800">
 </p>
 
-
-
 ---
 
-# Analysis & Incident Assessment 
+## Analysis & Incident Assessment 
 
 This section highlights how Microsoft Sentinel was used to investigate and respond to coordinated brute-force attacks across Windows, SQL Server, and Linux systems within a 24-hour monitoring period.
 **Incident ID: 329** Wass linked to malicious IP 74.249.102.160, which triggered multiple alerts.
@@ -234,7 +229,7 @@ Remediated by associating and resetting the passwords for the compromised users 
 
 ---
 
-# 📊 Post-Hardening
+# 📊 Post-Hardening Attack Surface 
 
 All map queries returned no results because there was zero malicious activity during the 24 hours following hardening.
 After implementing hardening measures, we detected no malicious activity. All queries on the Sentinel map returned zero results, confirming the effectiveness of tightening our Network Security Groups (NSGs), utilizing private endpoints, and adhering to compliance requirements. By following Microsoft-recommended hardening steps alongside NIST SP 800-53 controls, we successfully reduced malicious traffic and incidents to zero within 24 hours.
@@ -257,12 +252,12 @@ These visuals demonstrate how the lab's single virtual network was divided into 
 
 ---
 
+
 ### 🧰 Azure NIST Overview
-NIST SP-800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
+NIST SP-800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It is the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
 To check NIST SP-800-53-R5 compliance:
 > Navigate to: **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
-
 
 **NIST Protection:** 
 A high-level use case for implementing NIST controls involves thoroughly examining the security lifecycle. This process includes the following stages:
@@ -270,7 +265,7 @@ A high-level use case for implementing NIST controls involves thoroughly examini
 > 2. **Assess:** Conduct assessments with tools like Sentinel to identify vulnerabilities and gaps within the security infrastructure.
 > 3. **Remediate:** Implement Azure DDoS protection to address identified threats.
 > 4. **Monitor:** Continuously oversee and evaluate security measures to ensure their effectiveness.
-> 5. **Respond:** Utilize an automated playbook designed to notify the governance team of any security incidents.
+> 5. **Respond:** Utilize an automated playbook to notify the governance team of any security incidents.
 
 This systematic approach promotes effective management of security controls throughout their lifecycle, ensuring organizational resilience against potential threats.
 
@@ -278,11 +273,11 @@ This systematic approach promotes effective management of security controls thro
 
 ---
 
-# Azure Hardening Analysis 
+# Overview
 
 ## Architecture
 
-> 🧱 This side-by-side comparison shows how exposed infrastructure was transformed into a secure environment by integrating best practices, including private endpoints and network security group (NSG) restrictions.
+> 🧱 This comparison shows how exposed infrastructure was transformed into a secure environment by integrating best practices, including private endpoints and network security group (NSG) restrictions.
 
 | Stage | Diagram | Description |
 |-------|---------|-------------|
@@ -290,12 +285,11 @@ This systematic approach promotes effective management of security controls thro
 | **After Hardening**  | <img src="https://i.imgur.com/ShquQ5C.jpg" alt="Post-hardening architecture" width="350"> | NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3). |
 
 
-
 ---
 
 ## Methodology
 
-> 🔍 Each phase followed a logical progression from open exposure to complete remediation. Sentinel, Defender, and NIST guidelines were used together to identify threats and harden the environment based on real-world telemetry.
+> 🔍 Each phase followed a logical progression from open exposure to complete remediation. Sentinel, Defender, and NIST guidelines were used to identify threats and harden the environment based on real-world telemetry.
 
 | Phase | Key Actions |
 |-------|-------------|
@@ -309,7 +303,7 @@ This systematic approach promotes effective management of security controls thro
 
 ## Metrics & Results
 
-> 📉 The dramatic drop in alerts, flows, and incidents demonstrates how quickly and effectively the environment improved after targeted hardening strategies were implemented.
+> 📉 The dramatic drop in alerts, flows, and incidents demonstrates how quickly and effectively the environment improved after implementing targeted hardening strategies.
 
 ### ⏱️ Before vs After (24 h)
 
