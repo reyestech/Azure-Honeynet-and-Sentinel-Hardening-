@@ -45,39 +45,29 @@ A subsequent 24-hour monitoring period was conducted to evaluate the effectivene
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="800">
 </p>
 
-### **Key Skills**  
-> 1. **Azure Security Architecture:** Designed and implemented a secure cloud infrastructure within Microsoft Azure.
-> 2. **SIEM Log Analytics:** Utilized Microsoft Sentinel for real-time monitoring and analysis of security events.
-> 3. **Kusto Query Language (KQL):** Developed and executed queries for effective threat hunting and data analysis.
-> 4. **Threat Detection & Response:** Identified and responded to security incidents, enhancing the environment's resilience.
-> 5. **Vulnerability Management:** Assessed and mitigated vulnerabilities within the cloud infrastructure.
-> 6. **Compliance Governance:** Ensured adherence to regulatory standards and best practices.
-> 7. **Cloud Networking:** Configured and managed network security groups and virtual networks.
-> 8. **Automation:** Implemented automated responses to security incidents, streamlining operations.
-
 ---
 
 ## 🔓 **Before Hardening: Insecure Cloud Architecture**
 The initial cloud architecture was intentionally misconfigured to simulate a high-risk production-like environment, resembling those typically found in real-world security incidents. This insecure setup was designed to attract live cyber threats, gather telemetry data, and identify common attack vectors. Azure resources were purposefully exposed with minimal access restrictions, creating a controlled environment for observing adversary behavior.
-1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfigurations
-2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
-3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
-
-![68747470733a2f2f692e696d6775722e636f6d2f69536c666559582e6a7067](https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918)
-
+> 1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfiguration
+> 2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
+> 3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="80%" />
+</div>
 
 ## 🔐**After Hardening: Secure & Compliant Architecture**
 After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
 
 This transformation highlights the critical role of Security Operations Center (SOC) analysts, who use platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
-1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
-2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
-3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
-
-![68747470733a2f2f692e696d6775722e636f6d2f536871755135432e6a7067](https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160)
+> 1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
+> 2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
+> 3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160" width="80%" />
+</div>
 
 ---
-
 
 # 📉 Attack Surface Before Hardening 
 
@@ -90,18 +80,18 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/343d9f0f-4a53-49c6-b540-0ae7bf918b2e" width="400">
 </p>
 
-
   - NIST SP 800-53 R5 – Access Control (AC) Findings:
 > AC. Access Control: In access control, we can see what is missing to meet NIST standards.
 
 <p align="left">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748" width="800">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/1a89ae0f-1d81-47b7-852d-b66cdafb0748" width="600">
 </p>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/b79fc23a-764b-4b23-afe5-2962621f2e6b" width="800">
+  <img src="https://github.com/user-attachments/assets/b79fc23a-764b-4b23-afe5-2962621f2e6b" width="600">
 </p>
 
+---
 
 ## 🌍 Attack Maps Before Hardening
 
@@ -122,7 +112,7 @@ AzureNetworkAnalytics_CL
 </details>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="800">
+  <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="600">
 </p>
 
 
@@ -142,7 +132,7 @@ Syslog
 </details>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/f722c441-841d-4044-9181-3f2cea84a558" width="800">
+  <img src="https://github.com/user-attachments/assets/f722c441-841d-4044-9181-3f2cea84a558" width="600">
 </p>
 
 
@@ -163,7 +153,7 @@ SecurityEvent
 </details>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/97d93c53-713c-4857-9643-a3149a2317f0" width="800">
+  <img src="https://github.com/user-attachments/assets/97d93c53-713c-4857-9643-a3149a2317f0" width="600">
 </p>
 
 
@@ -184,13 +174,12 @@ SqlSecurityAuditEvents
 </details>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/a687ffa2-0469-4f4a-a54b-8758583b7985" width="800">
+  <img src="https://github.com/user-attachments/assets/a687ffa2-0469-4f4a-a54b-8758583b7985" width="600">
 </p>
 
 ---
 
 ## Analysis & Incident Assessment 
-
 This section highlights how Microsoft Sentinel was used to investigate and respond to coordinated brute-force attacks across Windows, SQL Server, and Linux systems within a 24-hour monitoring period.
 **Incident ID: 329** Wass linked to malicious IP 74.249.102.160, which triggered multiple alerts.
 > 1. **Alert 205:** Brute Force Attempt – Windows
@@ -200,7 +189,7 @@ This section highlights how Microsoft Sentinel was used to investigate and respo
 <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856" width="350"/> 
 
 
-### **Analyzing the Traffic** 
+## **Analyzing the Traffic** 
 Sentinel analytics helped correlate these events, enabling detailed examination of attacker behavior, IP reputation, and sequence of actions. I analyzed both successful and failed attempts, filtering out false positives and tracking escalation patterns.
 
 📊 **The included visuals show:**
@@ -208,24 +197,23 @@ Sentinel analytics helped correlate these events, enabling detailed examination 
 > 2.	NSG flow logs mapping inbound malicious traffic
 > 3.	Timelines that illustrate how these threats stopped once hardening controls were applied
 
-<img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d" width="700"/> 
+<img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9d31a24c-d5b6-41b5-9089-7675844cf60d" width="600"/> 
 
 ✅ **Result:** Sentinel detections and NSG rule adjustments significantly reduced the attack surface and prevented further compromise. 
 
 
-### **Azure Investigation Graph**
+## **Azure Investigation Graph**
 The Investigation Graph automatically visualizes the complete attack chain.
 > Connecting alerts, affected hosts, and user accounts in a unified timeline. This enables analysts to swiftly transition from one indicator to corresponding evidence, enhancing the speed of triage and root-cause analysis.
 
-![image](https://github.com/user-attachments/assets/0b4fd94a-d8f0-46ab-b832-5fdfe0c2858c)
+<img src="https://github.com/user-attachments/assets/0b4fd94a-d8f0-46ab-b832-5fdfe0c2858c" width="50%" />
 
-
-### **Application and NSG hardening**
+## **Application and NSG hardening**
 Remediated by associating and resetting the passwords for the compromised users and locking down NSGs
 > Impact: The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac" width="800"/>
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa" width="800"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac" width="600"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa" width="600"/>
 
 ---
 
@@ -234,7 +222,7 @@ Remediated by associating and resetting the passwords for the compromised users 
 All map queries returned no results because there was zero malicious activity during the 24 hours following hardening.
 After implementing hardening measures, we detected no malicious activity. All queries on the Sentinel map returned zero results, confirming the effectiveness of tightening our Network Security Groups (NSGs), utilizing private endpoints, and adhering to compliance requirements. By following Microsoft-recommended hardening steps alongside NIST SP 800-53 controls, we successfully reduced malicious traffic and incidents to zero within 24 hours.
 <p align="left">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e" alt="No incidents after hardening" width="700"/>
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/727edb36-b4e2-448d-aed0-60b5484ae91e" alt="No incidents after hardening" width="600"/>
 </p>
 
 
@@ -251,7 +239,6 @@ These visuals demonstrate how the lab's single virtual network was divided into 
 </p>
 
 ---
-
 
 ### 🧰 Azure NIST Overview
 NIST SP-800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It is the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
@@ -283,7 +270,6 @@ This systematic approach promotes effective management of security controls thro
 |-------|---------|-------------|
 | **Before Hardening** | <img src="https://i.imgur.com/iSlfeYX.jpg" alt="Pre-hardening architecture" width="350"> | Public-facing VMs & services intentionally exposed to attract attackers. |
 | **After Hardening**  | <img src="https://i.imgur.com/ShquQ5C.jpg" alt="Post-hardening architecture" width="350"> | NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3). |
-
 
 ---
 
@@ -371,11 +357,9 @@ AzureNetworkAnalytics_CL
 ---
 
 ## Conclusion
-
 As part of this project, a honeynet was strategically deployed within the Microsoft Azure environment to emulate a high-risk, production-like setting that is susceptible to contemporary cyberattacks. Intentionally misconfigured virtual machines operating on Windows, Linux, and SQL Server were exposed to the internet to attract real-time threat activity. Logging was centralized through Azure Log Analytics, integrating telemetry from system, network, and security sources. Microsoft Sentinel served as the Security Information and Event Management (SIEM) platform, facilitating the creation of custom analytics rules, triggering real-time alerts, and visualizing threat activity through interactive workbooks and geolocation-based attack maps. Each alert was correlated with specific incidents, allowing for structured triage workflows that mirrored the operations of an actual Security Operations Center (SOC).
 
 After performing a baseline analysis of threat activity and authentication failures, the environment was fortified using Azure-native security controls and compliance standards aligned with NIST SP 800-53. Critical measures implemented included Network Security Group (NSG) lockdowns, enforcing firewall rules, and migrating to private endpoints. Microsoft Defender for Cloud was also utilized to assess misconfigurations and guide remediation efforts. Following the implementation of these security controls, a subsequent monitoring phase revealed a marked reduction in unauthorized access attempts and brute-force attacks. These findings highlight the importance of layered security, continuous monitoring, and standards-based governance in enhancing cloud environments, resulting in measurable improvements in detection, prevention, and overall security posture from the perspective of a SOC analyst.
-
 
 ![Synapse-Animation_Embargoed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9)
 
