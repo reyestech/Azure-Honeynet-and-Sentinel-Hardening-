@@ -11,25 +11,36 @@
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
 </p>
 
-<h2 align="center"> 🔐 Introduction </h2>
+<h2 align="center"> 🔐 Overview </h2>
 
+## Introduction
 
+This report presents a comprehensive cybersecurity analysis conducted within a live Microsoft Azure environment, specifically designed to capture and respond to real-world cyber threats. A honeynet comprising intentionally vulnerable Windows, Linux, and SQL Server virtual machines was deployed and made accessible on the internet, successfully attracting unauthorized activity from a variety of global threat actors. The primary aim of this environment was to observe malicious behavior, analyze attack patterns, and implement effective defenses based on industry best practices.
 
-### **Overview: Methodology**
-This project adopted a structured six-phase approach to attract, detect, simulate, monitor, and defend against real-world cyber threats within a live cloud environment. The primary aim was to entice malicious activity, contain it within a controlled sandbox setting, and extract insights to enhance threat detection and response mechanisms.
+Utilizing Microsoft Sentinel as the central Security Information and Event Management (SIEM) solution, threat data was ingested, correlated, and visualized in real-time. This was complemented by insights derived from Microsoft Defender for Cloud and governed by the NIST SP 800-53 framework, enabling the identification of active vulnerabilities and the systematic application of hardening controls.
 
-> 1. **Environment Setup and Initial Assessment:**
-Intentionally vulnerable virtual machines, including Windows, Linux, and SQL Server, were deployed in Azure to replicate an insecure production environment. This configuration effectively functioned as a honeynet designed to attract live cyber threats and simulate adversarial behavior within a controlled environment.
-> 2. **Log Data Configuration and Collection:**
-Azure resources were configured to forward system, network, and security logs to a centralized Log Analytics workspace. This arrangement ensured comprehensive visibility and facilitated the correlation of suspicious activities throughout the cloud environment.
-> 3. **Monitoring and Benchmarking:**
-A 24-hour monitoring period was implemented to capture critical security events and performance metrics. This initiative provided a benchmark for identifying abnormal behavior and assessing the effectiveness of future remediation efforts.
-> 4. **Incident Detection and Response:**
-Remedial actions were undertaken based on Azure best practices, aligning with NIST SP 800-53 controls and NIST SP 800-61 incident handling guidance. These measures enhanced the overall security posture of the environment and ensured compliance with applicable industry standards.
-> 5. **Security Enhancement Implementation:**
-Remedial actions were undertaken based on Azure best practices, aligning with NIST SP 800-53 controls and NIST SP 800-61 incident handling guidance. These measures enhanced the overall security posture of the environment and ensured compliance with applicable industry standards.
-> 6. **Post-Remediation Assessment and Evaluation:**
-A subsequent 24-hour monitoring period was conducted to evaluate the effectiveness of the security enhancements. Data from both assessment phases were analyzed and compared to quantify improvements and verify a reduced vulnerability to contemporary threat actors.
+This engagement demonstrates increased proficiency in security monitoring, incident response, and compliance-driven remediation, highlighting its relevance to both Security Operations Center (SOC) analysts and Governance, Risk, and Compliance (GRC) functions. All findings were rigorously validated through post-remediation monitoring to ensure enhancements in the environment's security posture.
+
+### 🧪 Methodology
+This analysis was executed using a six-phase methodology designed to **monitor, detect, and mitigate active cyber threats** within a live Microsoft Azure environment. The strategy emphasized **real-world attacker engagement** through the deployment of a honeynet and the application of **framework-based controls** to assess and improve the cloud security posture.
+
+**Phase 1:** Environment Deployment
+> Deployed intentionally vulnerable Windows, Linux, and SQL Server VMs in Azure to attract real-world threats via public exposure.
+
+**Phase 2:** Log Integration
+> Configured Azure Log Analytics and Microsoft Sentinel to centralize system, network, and security telemetry across all virtual machines.
+
+**Phase 3:** Baseline Threat Monitoring
+> Conducted a 24-hour observation period to collect attack data, identify initial threat vectors, and establish behavioral baselines.
+
+**Phase 4:** Detection & Automated Response
+> Implemented Sentinel analytics rules and automation playbooks to detect malicious activity and initiate response actions aligned with NIST SP 800-61.
+
+**Phase 5:** Security Hardening
+> Applied remediation steps based on Microsoft Defender for Cloud findings and mapped them to NIST SP 800-53 security controls.
+
+**Phase 6:** Post-Hardening Assessment
+> Performed a second monitoring window to measure the impact of hardening efforts and verify reduced exposure to threats.
 
 <h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
 
@@ -37,9 +48,11 @@ A subsequent 24-hour monitoring period was conducted to evaluate the effectivene
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="800">
 </p>
 
+
 ---
 
-## 🔓 **Before Hardening: Insecure Cloud Architecture**
+## Before Hardening
+### 🔓 **Insecure Cloud Architecture**
 The initial cloud architecture was intentionally misconfigured to simulate a high-risk production-like environment, resembling those typically found in real-world security incidents. This insecure setup was designed to attract live cyber threats, gather telemetry data, and identify common attack vectors. Azure resources were purposefully exposed with minimal access restrictions, creating a controlled environment for observing adversary behavior. 
 1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfiguration
 2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
@@ -48,7 +61,8 @@ The initial cloud architecture was intentionally misconfigured to simulate a hig
   <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="80%" />
 </div>
 
-## 🔐**After Hardening: Secure & Compliant Architecture**
+## After Hardening
+### 🔓 **Secure & Compliant Architecture**
 After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
 
 This transformation highlights the critical role of Security Operations Center (SOC) analysts using platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
@@ -61,9 +75,10 @@ This transformation highlights the critical role of Security Operations Center (
 
 ---
 
-# 📉 Attack Surface Before Hardening 
+# 📉 Attack Surface 
 
-## 🛡️Microsoft Defender for Cloud – Initial Posture
+## Initial Posture
+### 🛡️Microsoft Defender for Cloud 
 
 Overview: Initial assessment revealed a low security posture and a lack of compliance with access control standards.
   - Security Score:
@@ -85,9 +100,11 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 
 ---
 
-## 🌍 Attack Maps Before Hardening
+## 🌍 Sentinel Maps: Before Azure Hardening
 
-## 🌐 **1. NSGs** – Malicious Inbound Flows
+## Initial Maps Attacks
+
+### 🌐 **1. NSGs** – Malicious Inbound Flows
 **Description:** Network Security Groups (NSG)
 
 This query identifies potentially malicious inbound traffic targeting your environment through Azure Network Security Groups (NSGs). It focuses on flows categorized as malicious that have been allowed access to your virtual network, often from untrusted or unidentified threat IPs.
@@ -95,7 +112,7 @@ This query identifies potentially malicious inbound traffic targeting your envir
 Monitoring this traffic is crucial for security teams to detect early signs of compromise, including reconnaissance scans or brute-force attacks. Analysts can streamline threat investigations by presenting key information like source and destination IP addresses and timestamps.
 
 <details>
-  <summary><strong>⚙️ Click to View How It Works: NSG Traffic</strong></summary>
+  <summary><strong>⚙ Click to View: How NSG Traffic Works </strong></summary>
 
 **How NSG Traffic Query Works:**
 
@@ -110,10 +127,9 @@ Monitoring this traffic is crucial for security teams to detect early signs of c
 
 </details>
 
-
 > NSG received inbound traffic from untrusted IPs.
 
- <details>
+<details>
    <summary><strong> 📋Click to View Query: NSG Traffic </strong></summary>
      
 KQL Query: NSGs Inbound Traffic from all untrusted IPs.
@@ -130,43 +146,6 @@ AzureNetworkAnalytics_CL
 <p align="left">
   <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="600">
 </p>
-
- <details>
-   <summary><strong> ⚙️ Click to View How It Works. NSG Traffic Works:  </strong></summary>
-     
-How NSG Traffic Works.
-> - Table: AzureNetworkAnalytics_CL – This custom log table contains flow-level analytics and metadata from Azure NSGs.
-> - Filter:
-> -   FlowType_s == "MaliciousFlow" – Filters for traffic labeled as malicious based on threat intel or behavioral analysis.
-> -   AllowedInFlows_d >= 1 – Ensures the query only returns entries where inbound flows were allowed, indicating a potential exposure.
-> - Output: Projects key fields for investigation:
-> -   TimeGenerated: When the traffic occurred
-> -   SrcIP_s: The originating (possibly malicious) IP
-> -   DestIP_s: The destination IP within your environment
-
-</details>
-
-</details>
-
-<p align="left">
-  <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="600">
-</p>
-
-<details>
-  <summary><strong>⚙️ Click to View How It Works: NSG Traffic</strong></summary>
-
-**How NSG Traffic Query Works:**
-
-- **Table**: `AzureNetworkAnalytics_CL` – This custom log table contains flow-level analytics and metadata from Azure NSGs.
-- **Filter**:
-  - `FlowType_s == "MaliciousFlow"` – Filters for traffic labeled as malicious based on threat intel or behavioral analysis.
-  - `AllowedInFlows_d >= 1` – Ensures the query only returns entries where **inbound flows were allowed**, indicating a potential exposure.
-- **Output**:
-  - `TimeGenerated`: When the traffic occurred  
-  - `SrcIP_s`: The originating (possibly malicious) IP  
-  - `DestIP_s`: The destination IP within your environment  
-
-</details>
 
 
 
@@ -418,7 +397,7 @@ As part of this project, a honeynet was strategically deployed within the Micros
 
 After performing a baseline analysis of threat activity and authentication failures, the environment was fortified using Azure-native security controls and compliance standards aligned with NIST SP 800-53. Critical measures implemented included Network Security Group (NSG) lockdowns, enforcing firewall rules, and migrating to private endpoints. Microsoft Defender for Cloud was also utilized to assess misconfigurations and guide remediation efforts. Following the implementation of these security controls, a subsequent monitoring phase revealed a marked reduction in unauthorized access attempts and brute-force attacks. These findings highlight the importance of layered security, continuous monitoring, and standards-based governance in enhancing cloud environments, resulting in measurable improvements in detection, prevention, and overall security posture from the perspective of a SOC analyst.
 
-![Synapse-Animation_Embargoed](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9)
 
-
-
+<p align="center">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9" width="880" alt="Methodology Infographic">
+</p>
