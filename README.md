@@ -102,12 +102,29 @@ This query identifies potentially malicious inbound traffic targeting your envir
 
 Monitoring this traffic is crucial for security teams to detect early signs of compromise, including reconnaissance scans or brute-force attacks. Analysts can streamline threat investigations by presenting key information like source and destination IP addresses and timestamps.
 
+<details>
+  <summary><strong>⚙️ Click to View How It Works: NSG Traffic</strong></summary>
+
+**How NSG Traffic Query Works:**
+
+- **Table**: `AzureNetworkAnalytics_CL` – This custom log table contains flow-level analytics and metadata from Azure NSGs.
+- **Filter**:
+  - `FlowType_s == "MaliciousFlow"` – Filters for traffic labeled as malicious based on threat intel or behavioral analysis.
+  - `AllowedInFlows_d >= 1` – Ensures the query only returns entries where **inbound flows were allowed**, indicating a potential exposure.
+- **Output**:
+  - `TimeGenerated`: When the traffic occurred  
+  - `SrcIP_s`: The originating (possibly malicious) IP  
+  - `DestIP_s`: The destination IP within your environment  
+
+</details>
+
+
 > NSG received inbound traffic from untrusted IPs.
 
  <details>
    <summary><strong> 📋Click to View Query: NSG Traffic </strong></summary>
      
-🔹KQL Query: NSGs Inbound Traffic from all untrusted IPs.
+KQL Query: NSGs Inbound Traffic from all untrusted IPs.
 ```kql
 AzureNetworkAnalytics_CL
 | where FlowType_s == "MaliciousFlow" and AllowedInFlows_d >= 1
@@ -121,6 +138,44 @@ AzureNetworkAnalytics_CL
 <p align="left">
   <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="600">
 </p>
+
+ <details>
+   <summary><strong> ⚙️ Click to View How It Works. NSG Traffic Works:  </strong></summary>
+     
+How NSG Traffic Works.
+> - Table: AzureNetworkAnalytics_CL – This custom log table contains flow-level analytics and metadata from Azure NSGs.
+> - Filter:
+> -   FlowType_s == "MaliciousFlow" – Filters for traffic labeled as malicious based on threat intel or behavioral analysis.
+> -   AllowedInFlows_d >= 1 – Ensures the query only returns entries where inbound flows were allowed, indicating a potential exposure.
+> - Output: Projects key fields for investigation:
+> -   TimeGenerated: When the traffic occurred
+> -   SrcIP_s: The originating (possibly malicious) IP
+> -   DestIP_s: The destination IP within your environment
+
+</details>
+
+</details>
+
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="600">
+</p>
+
+<details>
+  <summary><strong>⚙️ Click to View How It Works: NSG Traffic</strong></summary>
+
+**How NSG Traffic Query Works:**
+
+- **Table**: `AzureNetworkAnalytics_CL` – This custom log table contains flow-level analytics and metadata from Azure NSGs.
+- **Filter**:
+  - `FlowType_s == "MaliciousFlow"` – Filters for traffic labeled as malicious based on threat intel or behavioral analysis.
+  - `AllowedInFlows_d >= 1` – Ensures the query only returns entries where **inbound flows were allowed**, indicating a potential exposure.
+- **Output**:
+  - `TimeGenerated`: When the traffic occurred  
+  - `SrcIP_s`: The originating (possibly malicious) IP  
+  - `DestIP_s`: The destination IP within your environment  
+
+</details>
+
 
 
 ## 🐧2. Linux SSH Attacks – Authentication Failures
