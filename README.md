@@ -7,36 +7,28 @@
 
 ---
 
-<h2 align="center">🔐 Introduction</h2>
-
-In this project, I designed and deployed a Security Operations Center (SOC) environment using Microsoft Azure, using Microsoft Sentinel as the central Security Information and Event Management (SIEM) solution. To investigate emerging cyberattack behavior, I set up a honeynet by deploying intentionally vulnerable virtual machines running Windows, Linux, and SQL Servers, all of which were exposed to the internet. This configuration was designed to attract malicious actors from around the globe, enabling the collection and analysis of real-time attack data and current threat vectors.
-
-The SOC was designed to log, monitor, and analyze malicious traffic, which facilitated effective incident response. After the initial observations, I implemented stringent hardening controls aligned with regulatory standards, such as NIST SP 800-53. I followed recommendations from Microsoft Defender for Cloud to enhance the security posture of the cloud infrastructure.
-
 <p align="center">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
 </p>
 
+<h2 align="center"> 🔐 Introduction </h2>
 
-## 🎯 **Objective**  
-This project aimed to evaluate and enhance the security posture of a cloud environment by simulating real-world cyberattacks and establishing a structured incident response process. A honeynet, consisting of virtual machines (VMs) running Windows, Linux, and SQL Server, was deployed over 24 hours to attract global cyber threats. Logs collected via Azure Log Analytics facilitated the detection of malicious activities, the generation of alerts, and the initiation of automated incident responses utilizing Microsoft Sentinel.
 
-Microsoft Defender for Cloud assessed the VMs' configurations against established compliance benchmarks, identifying existing security vulnerabilities. Following the implementation of hardening measures, an additional assessment was conducted over 24 hours to validate the effectiveness of these remediation efforts. The NIST SP 800-53 framework was adopted as the foundational standard to ensure long-term compliance and to strengthen the cloud environment's defenses against potential threats.
 
-## **Methodology Overview**
+### **Overview: Methodology**
 This project adopted a structured six-phase approach to attract, detect, simulate, monitor, and defend against real-world cyber threats within a live cloud environment. The primary aim was to entice malicious activity, contain it within a controlled sandbox setting, and extract insights to enhance threat detection and response mechanisms.
 
-1. **Environment Setup and Initial Assessment:**
+> 1. **Environment Setup and Initial Assessment:**
 Intentionally vulnerable virtual machines, including Windows, Linux, and SQL Server, were deployed in Azure to replicate an insecure production environment. This configuration effectively functioned as a honeynet designed to attract live cyber threats and simulate adversarial behavior within a controlled environment.
-2. **Log Data Configuration and Collection:**
+> 2. **Log Data Configuration and Collection:**
 Azure resources were configured to forward system, network, and security logs to a centralized Log Analytics workspace. This arrangement ensured comprehensive visibility and facilitated the correlation of suspicious activities throughout the cloud environment.
-3. **Monitoring and Benchmarking:**
+> 3. **Monitoring and Benchmarking:**
 A 24-hour monitoring period was implemented to capture critical security events and performance metrics. This initiative provided a benchmark for identifying abnormal behavior and assessing the effectiveness of future remediation efforts.
-4. **Incident Detection and Response:**
+> 4. **Incident Detection and Response:**
 Remedial actions were undertaken based on Azure best practices, aligning with NIST SP 800-53 controls and NIST SP 800-61 incident handling guidance. These measures enhanced the overall security posture of the environment and ensured compliance with applicable industry standards.
-5. **Security Enhancement Implementation:**
+> 5. **Security Enhancement Implementation:**
 Remedial actions were undertaken based on Azure best practices, aligning with NIST SP 800-53 controls and NIST SP 800-61 incident handling guidance. These measures enhanced the overall security posture of the environment and ensured compliance with applicable industry standards.
-6. **Post-Remediation Assessment and Evaluation:**
+> 6. **Post-Remediation Assessment and Evaluation:**
 A subsequent 24-hour monitoring period was conducted to evaluate the effectiveness of the security enhancements. Data from both assessment phases were analyzed and compared to quantify improvements and verify a reduced vulnerability to contemporary threat actors.
 
 <h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
