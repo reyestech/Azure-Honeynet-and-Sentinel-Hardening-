@@ -75,9 +75,9 @@ This transformation highlights the critical role of Security Operations Center (
 
 ---
 
-# 📉 Attack Surface 
+# 📉 Initial Posture: Attack Surface Maps 
 
-## Initial Posture
+## Initial-Attacks-Surface
 ### 🛡️Microsoft Defender for Cloud 
 
 Overview: Initial assessment revealed a low security posture and a lack of compliance with access control standards.
@@ -106,18 +106,17 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 
 ---
 
-## 1.NSG-Inbound
-### 🌐 **1. NSG** – Malicious Inbound Flows
-**Description:** Network Security Groups (NSG)
+## 1. NSG-Inbound
+### 🌐 **Network Security Groups (NSG)** – Malicious Inbound Flows
 
 This query identifies potentially malicious inbound traffic targeting your environment through Azure Network Security Groups (NSGs). It focuses on flows categorized as malicious that have been allowed access to your virtual network, often from untrusted or unidentified threat IPs.
 
 Monitoring this traffic is crucial for security teams to detect early signs of compromise, including reconnaissance scans or brute-force attacks. Analysts can streamline threat investigations by presenting key information like source and destination IP addresses and timestamps.
 
 <details>
-  <summary><strong>⚙ Click to View: How NSG Traffic Works </strong></summary>
+  <summary><strong>⚙ How NSG Traffic Query Works: Click to View </strong></summary>
 
-**How NSG Traffic Query Works:**
+**NSG Traffic Query Table:**
 
 - **Table**: `AzureNetworkAnalytics_CL` – This custom log table contains flow-level analytics and metadata from Azure NSGs.
 - **Filter**:
