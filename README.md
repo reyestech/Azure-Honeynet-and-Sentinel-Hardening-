@@ -98,9 +98,9 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 ## 🌐 1. Network Security Group (NSG) – Malicious Inbound Flows
 > Description: NSGs allowed inbound traffic from untrusted IPs.
  <details>
-   <summary><strong> 📋Click to Expand: NSG Query </strong></summary>
+   <summary><strong> 📋Click to Expand Query: NSG Traffic </strong></summary>
      
-🔹KQL Query: NSGs Traffic
+🔹KQL Query: NSGs Inbound Traffic
 ```kql
 AzureNetworkAnalytics_CL
 | where FlowType_s == "MaliciousFlow" and AllowedInFlows_d >= 1
@@ -119,9 +119,9 @@ AzureNetworkAnalytics_CL
 ## 🐧2. Linux SSH Attacks – Authentication Failures
 > Description: Detected failed SSH login attempts targeting Ubuntu VM.
  <details>
-   <summary><strong> 🔹KQL Query: SSH Attacks </strong></summary>
+   <summary><strong> 📋Click to Expand Query: SSH Attacks </strong></summary>
    
-SSH Authentication Fails
+🔹KQL Query: SSH Attacks SSH Authentication Fails
 ```kql
 Syslog
 | where Facility == "auth" and SyslogMessage contains "Failed password"
@@ -139,9 +139,9 @@ Syslog
 ## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
 > Description: Observed brute-force attempts via RDP/SMB protocols on Windows VMs.
  <details>
-   <summary><strong> 🔹KQL Query: SMB/RDP Attacks </strong></summary>
+   <summary><strong> 📋Click to Expand Query: SMB/RDP Attacks </strong></summary>
    
-RDP Authentication Fails
+🔹KQL Query: SMB/RDP Authentication Fails
 ```kql
 SecurityEvent
 | where EventID == 4625
@@ -160,9 +160,9 @@ SecurityEvent
 ## 🛢️ 4. SQL Server Attacks – Authentication Failures
 > - Description: Repeated failed login attempts targeting exposed SQL Server.
 <details>
-  <summary><strong> 🔹KQL Query: SQL Server Attacks </strong></summary>
+  <summary><strong> 📋Click to View Query: SQL Attacks </strong></summary>
 
-SQL Server Authentication Fails
+🔹KQL Query: SQL Server Authentication Fails
 ```kql
 // Failed SQL logins
 SqlSecurityAuditEvents
