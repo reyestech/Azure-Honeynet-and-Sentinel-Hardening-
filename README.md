@@ -98,9 +98,9 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 ## 🌐 1. Network Security Group (NSG) – Malicious Inbound Flows
 > Description: NSGs allowed inbound traffic from untrusted IPs.
  <details>
-   <summary><strong> 🔹KQL Query: NSGs traffic  </strong></summary>
+   <summary><strong> 📋Click to Expand: NSG Query </strong></summary>
      
-NSG traffic
+🔹KQL Query: NSGs Traffic
 ```kql
 AzureNetworkAnalytics_CL
 | where FlowType_s == "MaliciousFlow" and AllowedInFlows_d >= 1
