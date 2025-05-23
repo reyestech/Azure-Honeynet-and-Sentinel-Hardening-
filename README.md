@@ -100,11 +100,14 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 
 ---
 
-## 🌍 Sentinel Maps: Before Azure Hardening
+## 🌍 Sentinel Maps: Monitoring Active Cyber Threats
+> Cyber Threat Landscape: Visualizing Live Cyberattacks with Sentinel Maps
+## Initial Maps 
 
-## Initial Maps Attacks
+---
 
-### 🌐 **1. NSGs** – Malicious Inbound Flows
+## 1.NSG-Inbound
+### 🌐 **1. NSG** – Malicious Inbound Flows
 **Description:** Network Security Groups (NSG)
 
 This query identifies potentially malicious inbound traffic targeting your environment through Azure Network Security Groups (NSGs). It focuses on flows categorized as malicious that have been allowed access to your virtual network, often from untrusted or unidentified threat IPs.
