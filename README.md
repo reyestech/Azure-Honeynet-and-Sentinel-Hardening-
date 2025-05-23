@@ -306,7 +306,7 @@ This systematic approach promotes effective management of security controls thro
 ## Kusto Query Language (KQL) & Python SDK Automation Queries
 
 <details>
-<summary>KQL Queries Used</summary>
+<summary>📋 KQL Queries: Toggle to Copy<</summary>
   
 ### Start & Stop Time
 ```
