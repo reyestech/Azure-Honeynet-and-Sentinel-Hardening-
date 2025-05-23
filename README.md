@@ -11,7 +11,7 @@
 
 In this project, I designed and deployed a Security Operations Center (SOC) environment using Microsoft Azure, using Microsoft Sentinel as the central Security Information and Event Management (SIEM) solution. To investigate emerging cyberattack behavior, I set up a honeynet by deploying intentionally vulnerable virtual machines running Windows, Linux, and SQL Servers, all of which were exposed to the internet. This configuration was designed to attract malicious actors from around the globe, enabling the collection and analysis of real-time attack data and current threat vectors.
 
-The SOC was designed to log, monitor, and analyze malicious traffic, which facilitated effective incident response. After the initial observations, I implemented stringent hardening controls that aligned with regulatory standards, such as NIST SP 800-53. I followed recommendations from Microsoft Defender for Cloud to enhance the security posture of the cloud infrastructure.
+The SOC was designed to log, monitor, and analyze malicious traffic, which facilitated effective incident response. After the initial observations, I implemented stringent hardening controls aligned with regulatory standards, such as NIST SP 800-53. I followed recommendations from Microsoft Defender for Cloud to enhance the security posture of the cloud infrastructure.
 
 <p align="center">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
@@ -21,7 +21,7 @@ The SOC was designed to log, monitor, and analyze malicious traffic, which facil
 ## 🎯 **Objective**  
 This project aimed to evaluate and enhance the security posture of a cloud environment by simulating real-world cyberattacks and establishing a structured incident response process. A honeynet, consisting of virtual machines (VMs) running Windows, Linux, and SQL Server, was deployed over 24 hours to attract global cyber threats. Logs collected via Azure Log Analytics facilitated the detection of malicious activities, the generation of alerts, and the initiation of automated incident responses utilizing Microsoft Sentinel.
 
-Microsoft Defender for Cloud was used to assess the VMs' configurations against established compliance benchmarks, identifying existing security vulnerabilities. Following the implementation of hardening measures, an additional assessment was conducted over a 24-hour period to validate the effectiveness of these remediation efforts. The NIST SP 800-53 framework was adopted as the foundational standard to ensure long-term compliance and to strengthen the cloud environment's defenses against potential threats.
+Microsoft Defender for Cloud assessed the VMs' configurations against established compliance benchmarks, identifying existing security vulnerabilities. Following the implementation of hardening measures, an additional assessment was conducted over 24 hours to validate the effectiveness of these remediation efforts. The NIST SP 800-53 framework was adopted as the foundational standard to ensure long-term compliance and to strengthen the cloud environment's defenses against potential threats.
 
 ## **Methodology Overview**
 This project adopted a structured six-phase approach to attract, detect, simulate, monitor, and defend against real-world cyber threats within a live cloud environment. The primary aim was to entice malicious activity, contain it within a controlled sandbox setting, and extract insights to enhance threat detection and response mechanisms.
@@ -59,7 +59,7 @@ The initial cloud architecture was intentionally misconfigured to simulate a hig
 ## 🔐**After Hardening: Secure & Compliant Architecture**
 After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
 
-This transformation highlights the critical role of Security Operations Center (SOC) analysts, who use platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
+This transformation highlights the critical role of Security Operations Center (SOC) analysts using platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
 1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
 2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
 3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
@@ -95,12 +95,19 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 
 ## 🌍 Attack Maps Before Hardening
 
-## 🌐 1. Network Security Group (NSG) – Malicious Inbound Flows
-> Description: NSGs allowed inbound traffic from untrusted IPs.
+## 🌐 **1. NSGs** – Malicious Inbound Flows
+**Description:** Network Security Groups (NSG)
+
+This query identifies potentially malicious inbound traffic targeting your environment through Azure Network Security Groups (NSGs). It focuses on flows categorized as malicious that have been allowed access to your virtual network, often from untrusted or unidentified threat IPs.
+
+Monitoring this traffic is crucial for security teams to detect early signs of compromise, including reconnaissance scans or brute-force attacks. Analysts can streamline threat investigations by presenting key information like source and destination IP addresses and timestamps.
+
+> NSG received inbound traffic from untrusted IPs.
+
  <details>
-   <summary><strong> 📋Click to Expand Query: NSG Traffic </strong></summary>
+   <summary><strong> 📋Click to View Query: NSG Traffic </strong></summary>
      
-🔹KQL Query: NSGs Inbound Traffic
+🔹KQL Query: NSGs Inbound Traffic from all untrusted IPs.
 ```kql
 AzureNetworkAnalytics_CL
 | where FlowType_s == "MaliciousFlow" and AllowedInFlows_d >= 1
@@ -117,11 +124,12 @@ AzureNetworkAnalytics_CL
 
 
 ## 🐧2. Linux SSH Attacks – Authentication Failures
-> Description: Detected failed SSH login attempts targeting Ubuntu VM.
+**Description:** Detected failed SSH login attempts targeting Ubuntu VM.
+
  <details>
-   <summary><strong> 📋Click to Expand Query: SSH Attacks </strong></summary>
+   <summary><strong> 📋Click to View Query: SSH Attacks </strong></summary>
    
-🔹KQL Query: SSH Attacks SSH Authentication Fails
+🔹KQL Query: SSH Authentication Fails for Linux VMs
 ```kql
 Syslog
 | where Facility == "auth" and SyslogMessage contains "Failed password"
@@ -137,11 +145,12 @@ Syslog
 
 
 ## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
-> Description: Observed brute-force attempts via RDP/SMB protocols on Windows VMs.
+**Description:** Observed brute-force attempts via RDP/SMB protocols on Windows VMs.
+
  <details>
-   <summary><strong> 📋Click to Expand Query: SMB/RDP Attacks </strong></summary>
+   <summary><strong> 📋Click to View Query: SMB/RDP Attacks </strong></summary>
    
-🔹KQL Query: SMB/RDP Authentication Fails
+🔹KQL Query: SMB/RDP Authentication Fails for Windows VMs
 ```kql
 SecurityEvent
 | where EventID == 4625
@@ -158,7 +167,8 @@ SecurityEvent
 
 
 ## 🛢️ 4. SQL Server Attacks – Authentication Failures
-> - Description: Repeated failed login attempts targeting exposed SQL Server.
+**Description:** Repeated failed login attempts targeting exposed SQL Server.
+
 <details>
   <summary><strong> 📋Click to View Query: SQL Attacks </strong></summary>
 
@@ -306,7 +316,7 @@ This systematic approach promotes effective management of security controls thro
 ## Kusto Query Language (KQL) & Python SDK Automation Queries
 
 <details>
-<summary>📋 KQL Queries: Toggle to Copy<</summary>
+<summary> 📋 Click to View KQL All Automation Queries <</summary>
   
 ### Start & Stop Time
 ```
