@@ -37,7 +37,13 @@ Our six‑phase lifecycle transforms an intentionally vulnerable Azure footprint
 
 ---
 
-# 📉 Initial Posture
+## 📉 Initial Posture
+
+Initial analysis from Microsoft Defender for Cloud showed a low Secure Score. Most issues are related to identity protection, endpoint configuration, and a lack of resource-level segmentation.
+
+- Security Score: The Azure environment initially scored 34%, with critical Defender recommendations for enabling MFA, reducing exposed endpoints, and applying OS-level patches.
+
+- NIST SP 800-53 R5 Access Control (AC) Findings: The setup lacked enforced role-based access, secure defaults, and audit logging—violating core NIST controls under the Access Control (AC) family.
 
 <h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
 
@@ -47,6 +53,8 @@ Our six‑phase lifecycle transforms an intentionally vulnerable Azure footprint
 
 ## Initial-Attacks-Surface
 ### 🛡️Microsoft Defender for Cloud 
+
+Microsoft Sentinel's built-in geospatial map feature revealed rapid inbound scanning activity. Within 24 hours, the environment had attracted thousands of connection attempts, primarily from Brazil, China, and Russia—highlighting how quickly attackers target new Azure resources with open ports.
 
 Overview: Initial assessment revealed a low security posture and a lack of compliance with access control standards.
   - Security Score:
@@ -114,8 +122,6 @@ AzureNetworkAnalytics_CL
 <p align="left">
   <img src="https://github.com/user-attachments/assets/73cc9fbe-f8b9-4593-b40f-f4a485c9150b" width="600">
 </p>
-
-
 
 ## 🐧2. Linux SSH Attacks – Authentication Failures
 **Description:** Detected failed SSH login attempts targeting Ubuntu VM.
