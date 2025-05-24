@@ -11,7 +11,8 @@
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
 </p>
 
-<h2 align="center"> 🔰 Introduction & Methodology </h2>
+<h1 align="center"> 🔰 Introduction & Methodology </h1>
+
 
 ## Introduction
 
@@ -21,7 +22,7 @@ Using Microsoft Sentinel as the primary Security Information and Event Managemen
 
 The engagement highlights advancements in security monitoring, incident response, and compliance-driven remediation, emphasizing their importance for Security Operations Center (SOC) analysts and Governance, Risk, and Compliance (GRC) functions. Findings were validated through post-remediation monitoring to enhance the environment's overall security posture.
 
-🧪 **Methodology**
+## 🧪 **Methodology**
 
 Our six‑phase lifecycle transforms an intentionally vulnerable Azure footprint into a self‑defending cloud workload, ensuring all lessons learned feed back into automated protection.
 
@@ -34,17 +35,15 @@ Our six‑phase lifecycle transforms an intentionally vulnerable Azure footprint
 | **5. Security Hardening** | Shrink attack surface | Apply Microsoft and **NIST SP 800-53** controls (network segmentation, MFA, patching, PAM). |
 | **6. Post-Hardening Assessment & Continuous Defense** | Prevent recurrence | Re-monitor for 24 h, compare metrics, and convert new findings into updated playbooks, TI blocklists, and policy-as-code to stop future attacks. |
 
+---
+
+# 📉 Initial Posture
 
 <h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
 
 <p align="center">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="800">
 </p>
-
----
----
-
-# 📉 Initial Posture: Attack Surface Maps 
 
 ## Initial-Attacks-Surface
 ### 🛡️Microsoft Defender for Cloud 
@@ -72,8 +71,6 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 ## 🌍 Sentinel Maps: Monitoring Active Cyber Threats
 > Cyber Threat Landscape: Visualizing Live Cyberattacks with Sentinel Maps
 ## Initial Maps 
-
----
 
 ## 1. NSG-Inbound
 ### 🌐 **Network Security Groups (NSG)** – Malicious Inbound Flows
