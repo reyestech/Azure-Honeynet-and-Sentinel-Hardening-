@@ -253,13 +253,20 @@ To check NIST SP-800-53-R5 compliance:
 > Navigate to: **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
 
-**NIST Protection:** 
-A high-level use case for implementing NIST controls involves thoroughly examining the security lifecycle. This process includes the following stages:
-1. **Build:** Develop security frameworks using the NIST workbook as a foundational guide. 
-2. **Assess:** Conduct assessments with tools like Sentinel to identify vulnerabilities and gaps within the security infrastructure.
-3. **Remediate:** Implement Azure DDoS protection to address identified threats.
-4. **Monitor:** Continuously oversee and evaluate security measures to ensure their effectiveness.
-5. **Respond:** Utilize an automated playbook to notify the governance team of any security incidents.
+## 🧰 Azure NIST Overview
+
+| Stage         | Key Actions                                                                                        |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| **Build**     | Develop security framework using the NIST SP 800‑53 workbook as a foundational guide.              |
+| **Assess**    | Conduct assessments using Microsoft Sentinel and Defender to identify misconfigurations and risks. |
+| **Remediate** | Implement Azure DDoS Protection, restrict NSGs, and enforce access controls.                       |
+| **Monitor**   | Continuously oversee security controls and telemetry within Defender and Sentinel.                 |
+| **Respond**   | Use automated playbooks to notify governance teams and log all critical incidents.                 |
+
+> Navigate to: **Azure Home → Defender for Cloud → Regulatory Compliance → NIST SP‑800‑53‑R5**
+
+NIST SP‑800‑53 is a comprehensive guideline for security and privacy controls in federal systems. It underpins compliance programs such as FedRAMP, CSF, and Azure Security Benchmark. This approach promotes continuous risk management across the security lifecycle and enhances cloud resilience.
+
 
 This systematic approach promotes effective management of security controls throughout their lifecycle, ensuring organizational resilience against potential threats.
 
