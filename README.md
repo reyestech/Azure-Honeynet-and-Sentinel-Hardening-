@@ -124,7 +124,13 @@ AzureNetworkAnalytics_CL
 </p>
 
 ## 🐧2. Linux SSH Attacks – Authentication Failures
-**Description:** Detected failed SSH login attempts targeting Ubuntu VM.
+
+SSH services on Ubuntu servers faced persistent brute-force login attempts. Sentinel flagged multiple password failures from a small set of rotating global IPs.
+
+* **Phase 1:** Detection began with hundreds of "Failed password" messages in the Syslog stream.
+* **Phase 2:** Analysts used automation to isolate attacker IPs and block them at the NSG level. These attacks slowed significantly post-hardening.
+
+> **Description:** Detected failed SSH login attempts targeting Ubuntu VM.
 
  <details>
    <summary><strong> 📋Click to View Query: SSH Attacks </strong></summary>
@@ -145,7 +151,12 @@ Syslog
 
 
 ## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
-**Description:** Observed brute-force attempts via RDP/SMB protocols on Windows VMs.
+Attackers repeatedly targeted exposed Windows VMs through port 3389 using common usernames and password variations. These brute-force attempts triggered Sentinel rules after reaching detection thresholds.
+
+* **Phase 1:** Failed logons were seen in `SecurityEvent` logs, marked with EventID 4625 and logonType 10 (RDP).
+* **Phase 2:** Accounts were protected by enabling lockouts and narrowing NSG rules.
+
+> **Description:** Observed brute-force attempts via RDP/SMB protocols on Windows VMs.
 
  <details>
    <summary><strong> 📋Click to View Query: SMB/RDP Attacks </strong></summary>
@@ -167,7 +178,13 @@ SecurityEvent
 
 
 ## 🛢️ 4. SQL Server Attacks – Authentication Failures
-**Description:** Repeated failed login attempts targeting exposed SQL Server.
+
+SQL Server faced login brute-force attempts through unauthenticated probes aimed at default accounts like sa. Sentinel registered spikes in failed logins and clustered alerts from similar IP ranges.
+
+Phase 1: SQL logs highlighted repeated login failures often spaced in short intervals.
+Phase 2: Sentinel playbooks were deployed to quarantine source IPs and notify security teams.
+
+> **Description:** Repeated failed login attempts targeting exposed SQL Server.
 
 <details>
   <summary><strong> 📋Click to View Query: SQL Attacks </strong></summary>
@@ -200,6 +217,7 @@ This section highlights how Microsoft Sentinel was used to investigate and respo
 
 
 ## **Analyzing the Traffic** 
+
 Sentinel analytics helped correlate these events, enabling detailed examination of attacker behavior, IP reputation, and sequence of actions. I analyzed both successful and failed attempts, filtering out false positives and tracking escalation patterns.
 
 📊 **The included visuals show:**
@@ -213,7 +231,9 @@ Sentinel analytics helped correlate these events, enabling detailed examination 
 
 
 ## **Azure Investigation Graph**
-The Investigation Graph automatically visualizes the complete attack chain.
+
+Microsoft Sentinel’s Investigation Graph stitches all elements—hosts, alerts, IPs, and user actions—into a single navigable chain. This visualization helped responders understand event sequences and attribution.
+
 > Connecting alerts, affected hosts, and user accounts in a unified timeline. This enables analysts to swiftly transition from one indicator to corresponding evidence, enhancing the speed of triage and root-cause analysis.
 
 <img src="https://github.com/user-attachments/assets/0b4fd94a-d8f0-46ab-b832-5fdfe0c2858c" width="50%" />
