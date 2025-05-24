@@ -11,7 +11,7 @@
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
 </p>
 
-<h2 align="center"> 🔐 Overview </h2>
+<h2 align="center"> 🔰 Introduction & Methodology </h2>
 
 ## Introduction
 
@@ -21,26 +21,30 @@ Utilizing Microsoft Sentinel as the central Security Information and Event Manag
 
 This engagement demonstrates increased proficiency in security monitoring, incident response, and compliance-driven remediation, highlighting its relevance to both Security Operations Center (SOC) analysts and Governance, Risk, and Compliance (GRC) functions. All findings were rigorously validated through post-remediation monitoring to ensure enhancements in the environment's security posture.
 
+> 🛠️ Skills Applied: SIEM Monitoring, KQL, Cloud Hardening, Threat Detection, Compliance Mapping
+
 ### 🧪 Methodology
 This analysis was executed using a six-phase methodology designed to **monitor, detect, and mitigate active cyber threats** within a live Microsoft Azure environment. The strategy emphasized **real-world attacker engagement** through the deployment of a honeynet and the application of **framework-based controls** to assess and improve the cloud security posture.
 
-**Phase 1:** Environment Deployment
-> Deployed intentionally vulnerable Windows, Linux, and SQL Server VMs in Azure to attract real-world threats via public exposure.
+•	**Phase 1: Exposed Environment** 
+> Deployed intentionally vulnerable Windows, Linux, and SQL Server VMs to attract real-world threats.
 
-**Phase 2:** Log Integration
+**Phase 2: Log Integration**
 > Configured Azure Log Analytics and Microsoft Sentinel to centralize system, network, and security telemetry across all virtual machines.
 
-**Phase 3:** Baseline Threat Monitoring
+•	**Phase 3: Baseline Threat Monitoring**
 > Conducted a 24-hour observation period to collect attack data, identify initial threat vectors, and establish behavioral baselines.
 
-**Phase 4:** Detection & Automated Response
+•	**Phase 4: Detection & Automated Response**
 > Implemented Sentinel analytics rules and automation playbooks to detect malicious activity and initiate response actions aligned with NIST SP 800-61.
 
-**Phase 5:** Security Hardening
+•	**Phase 5: Security Hardening**
 > Applied remediation steps based on Microsoft Defender for Cloud findings and mapped them to NIST SP 800-53 security controls.
 
-**Phase 6:** Post-Hardening Assessment
-> Performed a second monitoring window to measure the impact of hardening efforts and verify reduced exposure to threats.
+•	**Phase 6: Post-Hardening Assessment** 
+> Performed a second monitoring window to measure the impact of hardening efforts.
+
+
 
 <h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
 
@@ -50,29 +54,6 @@ This analysis was executed using a six-phase methodology designed to **monitor, 
 
 
 ---
-
-## Before Hardening
-### 🔓 **Insecure Cloud Architecture**
-The initial cloud architecture was intentionally misconfigured to simulate a high-risk production-like environment, resembling those typically found in real-world security incidents. This insecure setup was designed to attract live cyber threats, gather telemetry data, and identify common attack vectors. Azure resources were purposefully exposed with minimal access restrictions, creating a controlled environment for observing adversary behavior. 
-1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfiguration
-2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
-3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="80%" />
-</div>
-
-## After Hardening
-### 🔓 **Secure & Compliant Architecture**
-After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
-
-This transformation highlights the critical role of Security Operations Center (SOC) analysts using platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
-1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
-2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
-3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160" width="80%" />
-</div>
-
 ---
 
 # 📉 Initial Posture: Attack Surface Maps 
@@ -298,9 +279,32 @@ This systematic approach promotes effective management of security controls thro
 
 ---
 
-# Overview
+## Overview Architecture
 
-## Architecture
+## Before Hardening
+### 🔓 **Insecure Cloud Architecture**
+The initial cloud architecture was intentionally misconfigured to simulate a high-risk production-like environment, resembling those typically found in real-world security incidents. This insecure setup was designed to attract live cyber threats, gather telemetry data, and identify common attack vectors. Azure resources were purposefully exposed with minimal access restrictions, creating a controlled environment for observing adversary behavior. 
+1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfiguration
+2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
+3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
+> Public-facing VMs & services  exposed and attract attackers.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="80%" />
+</div>
+
+## After Hardening
+### 🔓 **Secure & Compliant Architecture**
+After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
+
+This transformation highlights the critical role of Security Operations Center (SOC) analysts using platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
+1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
+2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
+3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
+> NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3).
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160" width="80%" />
+</div>
+
 
 > 🧱 This comparison shows how exposed infrastructure was transformed into a secure environment by integrating best practices, including private endpoints and network security group (NSG) restrictions.
 
