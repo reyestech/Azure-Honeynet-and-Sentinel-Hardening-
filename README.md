@@ -274,53 +274,36 @@ This systematic approach promotes effective management of security controls thro
 
 ---
 
-## Overview Architecture
+## Project Architecture Overview
 
-## Before Hardening
-### 🔓 **Insecure Cloud Architecture**
-The initial cloud architecture was intentionally misconfigured to simulate a high-risk production-like environment, resembling those typically found in real-world security incidents. This insecure setup was designed to attract live cyber threats, gather telemetry data, and identify common attack vectors. Azure resources were purposefully exposed with minimal access restrictions, creating a controlled environment for observing adversary behavior. 
-1. **Public Exposure of Critical Resources:** The deployment included Windows and Linux virtual machines (VMs), an SQL Server, a storage account, and a key vault with public-facing endpoints and open network security groups (NSGs) designed to mirror prevalent misconfiguration
-2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, making the environment vulnerable to scanning, brute-force attacks, and lateral movement.
+## Architecture-Before-Hardening
+
+### 🔓 **Initial Architecture (Insecure)**
+The initial cloud architecture was an intentionally misconfigured Azure environment designed to simulate a high-risk production workload. This setup served as a honeynet to attract live cyber threats, gather telemetry, and observe adversary behavior.
+1. **Public Exposure of Critical Resources:** Deployment included Windows and Linux Virtual Machines, an SQL Server, a storage account, and a key vault with public-facing endpoints.
+2. **Permissive Network Security Groups (NSGs):** Default and loosely configured NSG rules allowed unrestricted inbound traffic, creating vulnerabilities to scanning, brute-force attacks, and lateral movement.
 3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
-> Public-facing VMs & services  exposed and attract attackers.
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="80%" />
 </div>
 
-## After Hardening
-### 🔓 **Secure & Compliant Architecture**
-After the initial detection and analysis of threats, the environment was restructured to incorporate secure architecture principles in line with NIST SP 800-53 controls, specifically SC-7(3): Access Restrictions for External Connections. The key enhancements focused on minimizing external exposure, strengthening infrastructure, and ensuring compliance with relevant standards. 
+> Public-facing VMs & services are  exposed and attract attackers.
 
-This transformation highlights the critical role of Security Operations Center (SOC) analysts using platforms like Microsoft Sentinel. Their responsibilities include continuous monitoring, log correlation, and incident triage. Additionally, it emphasizes the need for dedicated analysts to detect and neutralize threats before they escalate proactively.
-1. **Restricted Access via Hardened NSGs:** Ingress traffic was rigorously controlled by permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
-2. **Replacement of Public Endpoints with Private Endpoints:** Azure Private Endpoints were integrated for critical resources (e.g., storage, key vault), ensuring that access is restricted to trusted virtual networks and eliminating public exposure.
-3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Defender for Cloud policies were applied to implement platform-level protection and maintain compliance with SC-7(3): Access Restrictions for External Connections.
-> NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3).
+## Architecture-After-Hardening
+
+### 🔓 **Hardened Architecture (Secure & Compliant)**
+Following the initial threat analysis, the environment was meticulously restructured to align with secure architecture principles and NIST SP 800-53 controls, particularly SC-7(3) for Access Restrictions. Key enhancements focused on drastically minimizing external exposure and strengthening infrastructure:
+
+1. **Restricted Access via Hardened NSGs:**  Ingress traffic was rigorously controlled, permitting access exclusively from specific, trusted public IP addresses while blocking all other external traffic.
+2. **Replacement of Public Endpoints with Private Endpoints:** Critical resources (e.g., storage, key vault) were migrated to Azure Private Endpoints, ensuring access is restricted solely to trusted virtual networks and eliminating public exposure.
+3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Microsoft Defender for Cloud policies were applied to implement platform-level protection and maintain continuous compliance with SC-7(3).
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160" width="80%" />
 </div>
 
-
-> 🧱 This comparison shows how exposed infrastructure was transformed into a secure environment by integrating best practices, including private endpoints and network security group (NSG) restrictions.
-
-| Stage | Diagram | Description |
-|-------|---------|-------------|
-| **Before Hardening** | <img src="https://i.imgur.com/iSlfeYX.jpg" alt="Pre-hardening architecture" width="350"> | Public-facing VMs & services intentionally exposed to attract attackers. |
-| **After Hardening**  | <img src="https://i.imgur.com/ShquQ5C.jpg" alt="Post-hardening architecture" width="350"> | NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3). |
-
----
-
-## Methodology
-
-> 🔍 Each phase followed a logical progression from open exposure to complete remediation. Sentinel, Defender, and NIST guidelines were used to identify threats and harden the environment based on real-world telemetry.
-
-| Phase | Key Actions |
-|-------|-------------|
-| **1  Environment Build** | Deployed 2 Windows VMs, 1 Ubuntu VM, SQL Server, Storage Account & Key Vault with permissive NSGs. |
-| **2  Log Collection**   | Enabled diagnostic settings → Log Analytics; onboarded Defender for Cloud & Sentinel. |
-| **3  Baseline (24 h)**  | Captured attacks, created Sentinel alerts/incidents, stored metrics for comparison. |
-| **4  Hardening**        | Applied Microsoft & NIST recommendations (NSGs, firewalls, private endpoints, IAM). |
-| **5  Post-Remediation (24 h)** | Re-monitored metrics; validated 0 incidents and 0 malicious flows. |
+> NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3).
 
 ---
 
@@ -339,6 +322,10 @@ This transformation highlights the critical role of Security Operations Center (
 | **Malicious NSG Flows**       | 1 742   | 0  | **-100.00** |
 
 > 🔍 These figures confirm a complete elimination of detected attacks after hardening.
+
+🧱 This comparison shows how exposed infrastructure was transformed into a secure environment by integrating best practices, including private endpoints and network security group (NSG) restrictions.sa
+
+----
 
 ## Kusto Query Language (KQL) & Python SDK Automation Queries
 
