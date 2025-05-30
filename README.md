@@ -8,7 +8,7 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="800">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="700">
 </p>
 
 <h1 align="center"> 🔰 Introduction & Methodology </h1>
@@ -24,7 +24,7 @@ The engagement highlights advancements in security monitoring, incident response
 
 ## 🧪 **Methodology**
 
-Our six‑phase lifecycle transforms an intentionally vulnerable Azure footprint into a self‑defending cloud workload, ensuring all lessons learned feed back into automated protection.
+Our six-phase lifecycle transforms an intentionally vulnerable Azure footprint into a self-defending cloud workload, ensuring that all lessons learned are fed back into automated protection.
 
 | Phase | Objective | Key Actions |
 |-------|-----------|-------------|
@@ -41,20 +41,20 @@ Our six‑phase lifecycle transforms an intentionally vulnerable Azure footprint
 
 Initial analysis from Microsoft Defender for Cloud showed a low Secure Score. Most issues are related to identity protection, endpoint configuration, and a lack of resource-level segmentation.
 
-- Security Score: The Azure environment initially scored 34%, with critical Defender recommendations for enabling MFA, reducing exposed endpoints, and applying OS-level patches.
+- Security Score: The Azure environment initially scored 34%, with critical Defender recommendations for enabling multi-factor authentication (MFA), reducing exposed endpoints, and applying OS-level patches.
 
 - NIST SP 800-53 R5 Access Control (AC) Findings: The setup lacked enforced role-based access, secure defaults, and audit logging—violating core NIST controls under the Access Control (AC) family.
 
 <h3 align="center">📂 Secured Storage Access via Private Endpoint </h3>
 
 <p align="center">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="800">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="700">
 </p>
 
 ## Initial-Attacks-Surface
 ### 🛡️Microsoft Defender for Cloud 
 
-Microsoft Sentinel's built-in geospatial map feature revealed rapid inbound scanning activity. Within 24 hours, the environment had attracted thousands of connection attempts, primarily from Brazil, China, and Russia—highlighting how quickly attackers target new Azure resources with open ports.
+Microsoft Sentinel's built-in geospatial map feature revealed rapid inbound scanning activity. Within 24 hours, the environment had attracted thousands of connection attempts, primarily from Brazil, China, and Russia, highlighting how quickly attackers target new Azure resources with open ports.
 
 Overview: Initial assessment revealed a low security posture and a lack of compliance with access control standards.
   - Security Score:
