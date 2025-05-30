@@ -282,7 +282,7 @@ To check NIST SP-800-53-R5 compliance:
 | ------------- | -------------------------------------------------------------------------------------------------- |
 | **Build**     | Develop security framework using the NIST SP 800‑53 workbook as a foundational guide.              |
 | **Assess**    | Conduct assessments using Microsoft Sentinel and Defender to identify misconfigurations and risks. |
-| **Remediate** | Implement Azure DDoS Protection, restrict NSGs, and enforce access controls.                       |
+| **Remediate** | Implement Azure DDoS Protection, restrict Network Security Groups (NSGs), and enforce access controls.                       |
 | **Monitor**   | Continuously oversee security controls and telemetry within Defender and Sentinel.                 |
 | **Respond**   | Use automated playbooks to notify governance teams and log all critical incidents.                 |
 
@@ -293,11 +293,13 @@ NIST SP‑800‑53 is a comprehensive guideline for security and privacy control
 
 This systematic approach promotes effective management of security controls throughout their lifecycle, ensuring organizational resilience against potential threats.
 
-![image](https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3)
+<p align="center">
+<img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/821b1360-c5c8-4606-bd1b-f274761594a3" width="65%">
+</p>
 
 ---
 
-## Project Architecture Overview
+# Project Architecture Overview
 
 ## Architecture-Before-Hardening
 
@@ -308,7 +310,7 @@ The initial cloud architecture was an intentionally misconfigured Azure environm
 3. **Initial Monitoring via Microsoft Sentinel:** Logs from all resources were systematically collected through Azure Log Analytics and monitored using Microsoft Sentinel to detect real-time alerts, failed authentication attempts, and reconnaissance activities.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="80%" />
+  <img src="https://github.com/user-attachments/assets/f5ec8a80-09b3-42a4-ac2b-8f6cfb5d2918" width="70%" />
 </div>
 
 > Public-facing VMs & services are  exposed and attract attackers.
@@ -323,7 +325,7 @@ Following the initial threat analysis, the environment was meticulously restruct
 3. **Enforced Firewall and Policy Controls:** Azure-native firewalls and Microsoft Defender for Cloud policies were applied to implement platform-level protection and maintain continuous compliance with SC-7(3).
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160" width="80%" />
+  <img src="https://github.com/user-attachments/assets/a8eeaf5e-f941-4db5-9a1c-dfd87f05b160" width="70%" />
 </div>
 
 > NSGs tightened, firewalls tuned, public endpoints replaced by private endpoints, controls aligned to NIST SC-7(3).
@@ -410,5 +412,5 @@ Following a baseline analysis of threat activity, the environment was strengthen
 
 
 <p align="center">
-  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9" width="880" alt="Methodology Infographic">
+  <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9" width="700" alt="Methodology Infographic">
 </p>
