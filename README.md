@@ -13,7 +13,7 @@
 
 <h1 align="center"> 🔰 Introduction & Methodology </h1>
 
-## **Introduction**
+## 📜 **Introduction**
 
 This report summarizes a cybersecurity analysis conducted in a live Microsoft Azure environment to capture real-world cyber threats. A honeynet of intentionally vulnerable Windows, Linux, and SQL Server virtual machines was deployed, attracting unauthorized activity from global threat actors. The primary goal was to observe malicious behavior and analyze attack patterns while implementing effective defenses based on best practices.
 
