@@ -82,9 +82,9 @@ Overview: Initial assessment revealed a low security posture and a lack of compl
 ## 1. NSG-Inbound
 ### 🌐 **Network Security Groups (NSG)** – Malicious Inbound Flows
 
-This query identifies potentially malicious inbound traffic targeting your environment through Azure Network Security Groups (NSGs). It focuses on flows categorized as malicious that have been allowed access to your virtual network, often from untrusted or unidentified threat IPs.
+This query identifies potentially malicious inbound traffic targeting your environment through Azure Network Security Groups (NSGs). It focuses on flows categorized as malicious that have been allowed access to your virtual network, often from untrusted or unidentified IP addresses associated with threats.
 
-Monitoring this traffic is crucial for security teams to detect early signs of compromise, including reconnaissance scans or brute-force attacks. Analysts can streamline threat investigations by presenting key information like source and destination IP addresses and timestamps.
+Monitoring this traffic is crucial for security teams to detect early signs of compromise, including reconnaissance scans and brute-force attacks. Analysts can streamline threat investigations by presenting key information, such as source and destination IP addresses and timestamps.
 
 <details>
   <summary><strong>⚙ How NSG Traffic Query Works: Click to View </strong></summary>
@@ -150,7 +150,7 @@ Syslog
 
 
 ## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
-Attackers repeatedly targeted exposed Windows VMs through port 3389 using common usernames and password variations. These brute-force attempts triggered Sentinel rules after reaching detection thresholds.
+Attackers repeatedly targeted exposed Windows VMs through port 3389 using common usernames and password variations. These brute-force attempts triggered Sentinel rules once they reached detection thresholds.
 
 * **Phase 1:** Failed logons were seen in `SecurityEvent` logs, marked with EventID 4625 and logonType 10 (RDP).
 * **Phase 2:** Accounts were protected by enabling lockouts and narrowing NSG rules.
@@ -178,7 +178,7 @@ SecurityEvent
 
 ## 🛢️ 4. SQL Server Attacks – Authentication Failures
 
-SQL Server faced login brute-force attempts through unauthenticated probes aimed at default accounts like sa. Sentinel registered spikes in failed logins and clustered alerts from similar IP ranges.
+SQL Server faced login brute-force attempts through unauthenticated probes targeting default accounts, such as sa. Sentinel registered spikes in failed logins and clustered alerts from similar IP ranges.
 
 Phase 1: SQL logs highlighted repeated login failures often spaced in short intervals.
 Phase 2: Sentinel playbooks were deployed to quarantine source IPs and notify security teams.
@@ -231,7 +231,7 @@ Sentinel analytics helped correlate these events, enabling detailed examination 
 
 ## **Azure Investigation Graph**
 
-Microsoft Sentinel’s Investigation Graph stitches all elements—hosts, alerts, IPs, and user actions—into a single navigable chain. This visualization helped responders understand event sequences and attribution.
+Microsoft Sentinel’s Investigation Graph stitches all elements—hosts, alerts, IP addresses, and user actions—into a single, navigable chain. This visualization helped responders understand event sequences and attribution.
 
 > Connecting alerts, affected hosts, and user accounts in a unified timeline. This enables analysts to swiftly transition from one indicator to corresponding evidence, enhancing the speed of triage and root-cause analysis.
 
@@ -239,7 +239,7 @@ Microsoft Sentinel’s Investigation Graph stitches all elements—hosts, alerts
 
 ## **Application and NSG hardening**
 Remediated by associating and resetting the passwords for the compromised users and locking down NSGs
-> Impact: The account was local to the Linux machine and non-admin, so it had a low impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
+> Impact: The account was local to the Linux machine and non-admin, resulting in minimal impact. However, NSG hardening will remediate the attacks that have resulted in many other incidents.
 
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/23a192c8-65d3-4dc7-8112-d57e522eefac" width="600"/>
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/ea612103-e77f-4529-be2a-c867c3c3f7aa" width="600"/>
@@ -257,7 +257,7 @@ After implementing hardening measures, we detected no malicious activity. All qu
 
 ### 🔐 VLAN and Subnet Configuration
 
-These visuals demonstrate how the lab's single virtual network was divided into **three purpose-built subnets**. These subnets act as isolation zones, restricting traffic and limiting the blast radius if an attacker compromises a single host.
+These visuals illustrate how the lab's single virtual network was divided into three purpose-built subnets. These subnets serve as isolation zones, restricting traffic and limiting the potential damage if an attacker compromises a single host.
 
 **Azure Topology:** The Azure topology view displays all virtual machines (VMs), databases, and gateways on a single subnet within a virtual network. These subnets are separate rooms within the same building, each with doors (network security groups) that can be locked individually. The resource list in the right-hand pane is filtered by subnet, confirming that web, SQL, and management workloads reside in their segments.
 
@@ -270,7 +270,7 @@ These visuals demonstrate how the lab's single virtual network was divided into 
 ---
 
 ### 🧰 Azure NIST Overview
-NIST SP-800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It is the foundation for compliance frameworks like FedRAMP, CSF, and Azure Security Benchmark.
+NIST SP-800-53 is a comprehensive guideline for security and privacy controls in federal information systems. It serves as the foundation for compliance frameworks such as FedRAMP, CSF, and Azure Security Benchmark.
 To check NIST SP-800-53-R5 compliance:
 > Navigate to: **Azure Home > Microsoft Defender for Cloud > Regulatory compliance > NIST SP-800-53-R5**
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/00b13f92-53cb-4cec-a630-d168dcec4542" alt="Defender compliance 1" width="700"/>
