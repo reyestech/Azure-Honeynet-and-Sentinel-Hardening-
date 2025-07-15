@@ -13,7 +13,7 @@
 
 <h1 align="center"> 🔰 Introduction & Methodology </h1>
 
-## Introduction
+## **Introduction**
 
 This report summarizes a cybersecurity analysis conducted in a live Microsoft Azure environment to capture real-world cyber threats. A honeynet of intentionally vulnerable Windows, Linux, and SQL Server virtual machines was deployed, attracting unauthorized activity from global threat actors. The primary goal was to observe malicious behavior and analyze attack patterns while implementing effective defenses based on best practices.
 
@@ -178,7 +178,7 @@ SecurityEvent
 
 ## 🛢️ 4. SQL Server Attacks – Authentication Failures
 
-SQL Server faced login brute-force attempts through unauthenticated probes targeting default accounts, such as sa. Sentinel registered spikes in failed logins and clustered alerts from similar IP ranges.
+SQL Server faced login brute-force attempts through unauthenticated probes targeting default accounts, such as the "sa" account. Sentinel registered spikes in failed logins and clustered alerts from similar IP ranges.
 
 Phase 1: SQL logs highlighted repeated login failures often spaced in short intervals.
 Phase 2: Sentinel playbooks were deployed to quarantine source IPs and notify security teams.
@@ -288,7 +288,6 @@ To check NIST SP-800-53-R5 compliance:
 > Navigate to: **Azure Home → Defender for Cloud → Regulatory Compliance → NIST SP‑800‑53‑R5**
 
 NIST SP‑800‑53 is a comprehensive guideline for security and privacy controls in federal systems. It underpins compliance programs such as FedRAMP, CSF, and Azure Security Benchmark. This approach promotes continuous risk management across the security lifecycle and enhances cloud resilience.
-
 
 This systematic approach promotes effective management of security controls throughout their lifecycle, ensuring organizational resilience against potential threats.
 
@@ -404,7 +403,7 @@ AzureNetworkAnalytics_CL
 
 ---
 
-## Conclusion
+## **Conclusion**
 A honeynet was deployed within the Microsoft Azure environment to simulate a high-risk setting vulnerable to modern cyberattacks. Misconfigured virtual machines running Windows, Linux, and SQL Server were exposed to real-time threats. Centralized logging through Azure Log Analytics combines telemetry from various sources. At the same time, Microsoft Sentinel served as the SIEM platform, enabling real-time alerts and threat visualization through interactive workbooks and geolocation maps. Alerts were correlated with incidents, enabling structured triage workflows similar to those of a Security Operations Center (SOC).
 
 Following a baseline analysis of threat activity, the environment was strengthened by implementing Azure-native security controls aligned with NIST SP 800-53, including critical measures such as Network Security Group lockdowns and the use of private endpoints. Microsoft Defender for Cloud assessed misconfigurations and guided remediation efforts. The monitored environment demonstrated a significant reduction in unauthorized access attempts and brute-force attacks, underscoring the importance of layered security and continuous monitoring in enhancing cloud security posture from a Security Operations Center (SOC) perspective.
