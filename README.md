@@ -2,6 +2,8 @@
   <img src="https://github.com/user-attachments/assets/544ac8c3-8ffc-44c3-b9fd-347a20dfe786" alt="ezgif-7650866c6a50db" width="900"/>
 </p>
 
+---
+
 # Azure: Sentinel Honeynet and Network Hardening
  **Hector M. Reyes | SOC Analyst** |  [Google Docs Version](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
 
@@ -53,6 +55,8 @@ Initial analysis from Microsoft Defender for Cloud showed a low Secure Score. Mo
 <p align="center">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/70416dd1-70eb-4933-a0c7-f0a341276abb" width="700">
 </p>
+
+---
 
 ## Initial-Attacks-Surface
 ### 🛡️Microsoft Defender for Cloud 
@@ -152,7 +156,6 @@ Syslog
   <img src="https://github.com/user-attachments/assets/f722c441-841d-4044-9181-3f2cea84a558" width="600">
 </p>
 
-
 ## 🪟 3. Windows RDP Attacks – SMB/RDP Authentication Failures
 Attackers repeatedly targeted exposed Windows VMs through port 3389 using common usernames and password variations. These brute-force attempts triggered Sentinel rules once they reached detection thresholds.
 
@@ -178,7 +181,6 @@ SecurityEvent
 <p align="left">
   <img src="https://github.com/user-attachments/assets/97d93c53-713c-4857-9643-a3149a2317f0" width="600">
 </p>
-
 
 ## 🛢️ 4. SQL Server Attacks – Authentication Failures
 
@@ -218,6 +220,7 @@ This section highlights how Microsoft Sentinel was used to investigate and respo
 
 <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/2fa96acc-9a23-44a0-87a3-e1d74ac72856" width="350"/> 
 
+---
 
 ## **Analyzing the Traffic** 
 
@@ -232,6 +235,7 @@ Sentinel analytics helped correlate these events, enabling detailed examination 
 
 ✅ **Result:** Sentinel detections and NSG rule adjustments significantly reduced the attack surface and prevented further compromise. 
 
+---
 
 ## **Azure Investigation Graph**
 
