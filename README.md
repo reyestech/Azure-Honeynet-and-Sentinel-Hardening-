@@ -34,6 +34,10 @@ Our six-phase lifecycle transforms an intentionally vulnerable Azure footprint i
 | **5. Security Hardening** | Shrink attack surface | Apply Microsoft and **NIST SP 800-53** controls (network segmentation, MFA, patching, PAM). |
 | **6. Post-Hardening Assessment & Continuous Defense** | Prevent recurrence | Re-monitor for 24 h, compare metrics, and convert new findings into updated playbooks, TI blocklists, and policy-as-code to stop future attacks. |
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b5e7f54e-f39f-4769-884f-0fd1eb8b5496" alt="image" width="1866" />
+</p>
+
 ---
 
 ## 📉 Initial Posture
