@@ -4,8 +4,8 @@
 
 ---
 
-# Azure: Sentinel Honeynet and Network Hardening
- **Hector M. Reyes | SOC Analyst** |  [Google Docs Version](https://docs.google.com/document/d/1TbSMzlBtGITVFOTaBGqKXjKY0mPG14p5ZWra-Tj8WNk/pub)
+# Azure SOC Lab: Sentinel SIEM + Honeynet 
+ ### Hector M. Reyes  
 
 <p align="center">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/9859c84f-cf7b-4ccb-8ad7-4bf2dd5a35cb" width="700">
