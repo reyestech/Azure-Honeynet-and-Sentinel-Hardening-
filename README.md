@@ -14,25 +14,24 @@
 <h1 align="center"> 🔰 Introduction & Methodology </h1>
 
 ## 📜 **Introduction**
+This runbook outlines a cybersecurity analysis performed in a live Microsoft Azure environment to identify real-world cyber threats. A honeynet of intentionally vulnerable Windows, Linux, and SQL Server virtual machines was deployed to attract unauthorized activity from global threat actors, with the primary aim of observing malicious behavior and analyzing attack patterns while implementing effective defenses.
 
-This report summarizes a cybersecurity analysis conducted in a live Microsoft Azure environment to capture real-world cyber threats. A honeynet of intentionally vulnerable Windows, Linux, and SQL Server virtual machines was deployed, attracting unauthorized activity from global threat actors. The primary goal was to observe malicious behavior and analyze attack patterns while implementing effective defenses based on best practices.
+Utilizing Microsoft Sentinel as the primary Security Information and Event Management (SIEM) tool, threat data was ingested and visualized in real-time. Insights from Microsoft Defender for Cloud, based on the NIST SP 800-53 framework, enabled the identification of vulnerabilities and the implementation of hardening controls.
 
-Using Microsoft Sentinel as the primary Security Information and Event Management (SIEM) tool, threat data was ingested and visualized in real-time. Insights from Microsoft Defender for Cloud, guided by the NIST SP 800-53 framework, helped identify vulnerabilities and apply hardening controls.
-
-The engagement highlights advancements in security monitoring, incident response, and compliance-driven remediation, emphasizing their importance for Security Operations Center (SOC) analysts and Governance, Risk, and Compliance (GRC) functions. Findings were validated through post-remediation monitoring to enhance the environment's overall security posture.
+This engagement highlights progress in security monitoring, incident response, and compliance-driven remediation, which are essential for Security Operations Center (SOC) analysts and Governance, Risk, and Compliance (GRC) functions. Findings were validated through post-remediation monitoring to strengthen the overall security posture.
 
 ## 🧪 **Methodology**
 
-Our six-phase lifecycle transforms an intentionally vulnerable Azure footprint into a self-defending cloud workload, ensuring that all lessons learned are fed back into automated protection.
+Our six-phase lifecycle transforms an intentionally vulnerable Azure footprint into a self-defending cloud workload, ensuring that lessons learned are continuously integrated into automated protection strategies.
 
 | Phase | Objective | Key Actions |
 |-------|-----------|-------------|
-| **1. Exposed Environment** | Attract live threats | Deploy Windows, Linux & SQL VMs with public IPs and permissive NSGs. |
-| **2. Log Integration** | Centralize telemetry | Route diagnostics to **Azure Log Analytics**; onboard **Microsoft Sentinel** & **Defender for Cloud**. |
-| **3. Baseline Threat Monitoring (24 h)** | Quantify risk | Observe malicious traffic and authentication failures to establish statistical baselines. |
-| **4. Detection & Automated Response** | Halt live attacks | Create Sentinel analytics rules & playbooks aligned with **NIST SP 800-61** to isolate or block IOCs in real time. |
-| **5. Security Hardening** | Shrink attack surface | Apply Microsoft and **NIST SP 800-53** controls (network segmentation, MFA, patching, PAM). |
-| **6. Post-Hardening Assessment & Continuous Defense** | Prevent recurrence | Re-monitor for 24 h, compare metrics, and convert new findings into updated playbooks, TI blocklists, and policy-as-code to stop future attacks. |
+| **Phase 1 – Exposed Environment** | Attract live threats | Deploy Windows, Linux & SQL VMs with public IPs and permissive NSGs. |
+| **Phase 2 – Log Integration** | Centralize telemetry | Route diagnostics to **Azure Log Analytics**; onboard **Microsoft Sentinel** & **Defender for Cloud**. |
+| **Phase 3 – Baseline Threat Monitoring (24 h)** | Quantify risk | Observe malicious traffic and authentication failures to establish statistical baselines. |
+| **Phase 4 – Detection & Automated Response** | Halt live attacks | Create Sentinel analytics rules & playbooks aligned with **NIST SP 800-61** to isolate or block IOCs in real time. |
+| **Phase 5 – Security Hardening** | Shrink attack surface | Apply Microsoft and **NIST SP 800-53** controls (network segmentation, MFA, patching, PAM). |
+| **Phase 6 – Post-Hardening Assessment & Continuous Defense** | Prevent recurrence | Re-monitor for 24 h, compare metrics, and convert new findings into updated playbooks, TI blocklists, and policy-as-code to stop future attacks.|
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b5e7f54e-f39f-4769-884f-0fd1eb8b5496" alt="image" width="1866" />
@@ -410,10 +409,9 @@ AzureNetworkAnalytics_CL
 ---
 
 ## **Conclusion**
-A honeynet was deployed within the Microsoft Azure environment to simulate a high-risk setting vulnerable to modern cyberattacks. Misconfigured virtual machines running Windows, Linux, and SQL Server were exposed to real-time threats. Centralized logging through Azure Log Analytics combines telemetry from various sources. At the same time, Microsoft Sentinel served as the SIEM platform, enabling real-time alerts and threat visualization through interactive workbooks and geolocation maps. Alerts were correlated with incidents, enabling structured triage workflows similar to those of a Security Operations Center (SOC).
+The honeynet deployment in the Microsoft Azure environment simulated a high-risk setting vulnerable to modern cyberattacks. Misconfigured virtual machines were exposed to real-time threats. Centralized logging through Azure Log Analytics and Microsoft Sentinel provided real-time alerts and threat visualization, enabling structured triage workflows similar to those of a SOC.
 
-Following a baseline analysis of threat activity, the environment was strengthened by implementing Azure-native security controls aligned with NIST SP 800-53, including critical measures such as Network Security Group lockdowns and the use of private endpoints. Microsoft Defender for Cloud assessed misconfigurations and guided remediation efforts. The monitored environment demonstrated a significant reduction in unauthorized access attempts and brute-force attacks, underscoring the importance of layered security and continuous monitoring in enhancing cloud security posture from a Security Operations Center (SOC) perspective.
-
+Following a baseline analysis of threat activity, the environment was strengthened with Azure-native security controls aligned with NIST SP 800-53, resulting in a significant reduction in unauthorized access attempts and brute-force attacks. This underscores the critical importance of layered security and continuous monitoring in enhancing cloud security posture.
 
 <p align="center">
   <img src="https://github.com/reyestech/Azure-Honeynet-and-Sentinel-Hardening-/assets/153461962/6f463eb3-2e28-4023-94c2-9c85e56b23e9" width="700" alt="Methodology Infographic">
